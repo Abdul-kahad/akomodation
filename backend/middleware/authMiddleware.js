@@ -17,7 +17,15 @@ const login = (req, res) => {
   })
 }
 
+const logout = (req, res) => {
+  const { uid } = req.params
+  res.status(200).json({
+    message: 'Logout successful'
+  })
+}
+
 module.exports = {
   register,
-  login
+  login,
+  logout
 }

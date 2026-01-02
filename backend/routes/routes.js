@@ -1,10 +1,30 @@
 const express = require('express')
 const router = express.Router()
 
-const { getAllRooms, getSingleRoom} = require('../contollers/userController') 
+const { register, login, logout } = require('../middleware/authMiddleware')
+const { getAllRooms, getSingleRoom, userProfile, userProfileSettings, bookRoom, bookedRoom, unBookedRoom, terminateContract, } = require('../contollers/userController') 
 
 router.get('/', getAllRooms)
 
 router.get('/room/:roomId', getSingleRoom)
+
+router.post('/api/register', register)
+
+router.post('/api/login', login)
+
+router.delete('/api/logout', logout)
+
+router.get('/api/user/profile', userProfile)
+
+router.put('/api/user/profile/settings', userProfileSettings)
+
+router.post('/api/user/room/:roomId', bookRoom)
+
+router.get('/api/user/room/:roomId', bookedRoom)
+
+router.delete('/api/user/room/:roomId', unBookedRoom)
+
+router.delete('/api/user/terminatecontract', terminateContract)
+
 
 module.exports = router
