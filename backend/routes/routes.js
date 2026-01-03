@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { register, login, logout } = require('../middleware/authMiddleware')
+const { register, login, logout } = require('../middleware/auth')
 const { getAllRooms, getSingleRoom, userProfile, userProfileSettings, bookRoom, bookedRoom, unBookedRoom, terminateContract, } = require('../contollers/userController') 
 
 router.get('/', getAllRooms)
@@ -10,7 +10,7 @@ router.get('/room/:roomId', getSingleRoom)
 
 router.post('/api/register', register)
 
-router.post('/api/login', login)
+router.post('/api/login', login) 
 
 router.delete('/api/logout', logout)
 
