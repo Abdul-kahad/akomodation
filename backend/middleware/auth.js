@@ -1,5 +1,6 @@
 const User = require('../models/userModel')
 const bcrypt = require('bcrypt')
+const JWT = require('jsonwebtoken')
 
 const register = async (req, res) => {
   const { name, email, phone, password } = req.body
@@ -24,6 +25,7 @@ const login = async (req, res) => {
     const user = await User.findOne({ email }).select('+password')
     if (!user) return res.status(401).json({ message: 'Wrong email or password' })
     const isValid = await bcrypt.compare(password, user.password)
+    res.cookie = await JWT.sign(process.env.ACCESS_TOKEN, {user: user.name, uid: user._id })
     if(!isValid) return res.status(403).json({message: 'Wrong email or password'})
     res.status(200).json({message: 'Loggin successful', user: user.name})
   } catch (error) {

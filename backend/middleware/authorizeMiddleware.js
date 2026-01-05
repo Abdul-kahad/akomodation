@@ -1,10 +1,4 @@
 
-const authenticate = (req, res, next) => {
-  const userId = res.body.userId
-  res.status(200).json({message: 'authenticated user'})
-  next()
-}
-
 const authorize = (req, res, next) => {
   const userId = res.body.userId
   res.status(200).json({message: 'authorized user'})
@@ -12,6 +6,5 @@ const authorize = (req, res, next) => {
 }
 
 module.exports = {
-  authenticate,
   authorize
 }
