@@ -2,13 +2,14 @@ const User = require('../models/userModel')
 const bcrypt = require('bcrypt')
 
 const register = async (req, res) => {
-  const { name, email, phone, password } = req.params
-  if(!name || !email || !phone || !password) return res.status(401).json({message: 'Please enter all fields'})
-  if(await User.find(email)) return res.status(409).json({message: 'Email already used'})
+  const { name, email, phone, password } = req.body
+  if(!name || !email || !phone || !password) return res.status(400).json({message: 'Please enter all fields'})
+  const existingUser = await User.findOne({email})
+  if(existingUser) return res.status(409).json({message: 'Email already used'})
   try {
-    const Salt = bcrypt.genSalt(10)
-    const hashedPassword = bcrypt.hash(password, Salt)
-    const user = await User.createOne({ name, email, phone, hashedPassword }) 
+    const Salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(password, Salt)
+    const user = await User.create({ name, email, phone, password: hashedPassword }) 
     res.status(201).json({ message: 'Registration successful', user: user.name})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
@@ -17,20 +18,18 @@ const register = async (req, res) => {
 }
 
 const login = async (req, res) => {
-  const { email, password } = req.params
-  if(!email, !password) return res.status(401).json({message: 'Please enter all fields'})
+  const { email, password } = req.body
+  if(!email || !password) return res.status(400).json({message: 'Please enter all fields'})
   try {
-    const user = await User.findOne({email}, '+password')
+    const user = await User.findOne({ email }).select('+password')
+    if (!user) return res.status(401).json({ message: 'Wrong email or password' })
     const isValid = await bcrypt.compare(password, user.password)
     if(!isValid) return res.status(403).json({message: 'Wrong email or password'})
     res.status(200).json({message: 'Loggin successful', user: user.name})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
-    console.log(`Registeration error: ${error}`)
+    console.log(`Login error: ${error}`)
   }
-  res.status(200).json({
-    message: 'Loggin successful'
-  })
 }
 
 const logout = (req, res) => {
