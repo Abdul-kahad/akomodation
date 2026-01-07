@@ -25,9 +25,16 @@ const login = async (req, res) => {
     const user = await User.findOne({ email }).select('+password')
     if (!user) return res.status(401).json({ message: 'Wrong email or password' })
     const isValid = await bcrypt.compare(password, user.password)
-    res.cookie = await JWT.sign(process.env.ACCESS_TOKEN, {user: user.name, uid: user._id })
     if(!isValid) return res.status(403).json({message: 'Wrong email or password'})
-    res.status(200).json({message: 'Loggin successful', user: user.name})
+    const accessToken = await JWT.sign({user: user.name, uid: user._id }, process.env.ACCESS_TOKEN, {expiresIn: '30m'})
+    res.status(200).json({
+      message: 'Loggin successful', 
+      user: {
+        id: user._id,
+        username: user.username,
+        email: user.email
+      },
+     accessToken})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
     console.log(`Login error: ${error}`)
