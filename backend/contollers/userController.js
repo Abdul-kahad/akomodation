@@ -1,7 +1,13 @@
+const RoomModel = require('../models/roomsModel')
 
-const getAllRooms = (req, res) => (
-  res.status(200).json({message: 'Hello Akomodation kahad'})
-)
+const getAllRooms = async (req, res) => {
+  try {
+    const rooms = await RoomModel.find()
+    res.status(200).json({rooms})
+  } catch (error) {
+    res.status(500).json({message: 'Error fetching rooms'})
+  }
+}
 
 const getSingleRoom = (req, res) => {
   const roomId = req.params.roomId
