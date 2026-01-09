@@ -3,22 +3,25 @@ const mongoose = require('mongoose')
 const roomSchema = mongoose.Schema({
   roomTitle:{
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   roomDescription:{
     type:String,
-    required: true
+    required: true,
+    trim: true
   },
   roomLocation:{
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   booked: {
     type: Boolean,
     default: false
   }
 },{
-  timestamp: true
+  timestamps: true
 })
 
 module.exports = mongoose.model('RoomModel', roomSchema)
