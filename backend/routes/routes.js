@@ -1,11 +1,12 @@
 const express = require('express')
-const { authenticate } = require('../middleware/authenticateMiddleware')
+const { authenticate, } = require('../middleware/authenticateMiddleware')
+const { authorize } = require('../middleware/authorizeMiddleware')
 const router = express.Router()
 
 const { register, login, logout } = require('../middleware/auth')
 const { getAllRooms, getSingleRoom, userProfile, userProfileSettings, bookRoom, bookedRoom, unBookedRoom, terminateContract, } = require('../contollers/userController') 
 
-router.get('/', authenticate, getAllRooms)
+router.get('/', authenticate, authorize(['admin']), getAllRooms)
 
 router.get('/room/:roomId', getSingleRoom)
 

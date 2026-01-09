@@ -26,13 +26,15 @@ const login = async (req, res) => {
     if (!user) return res.status(401).json({ message: 'Wrong email or password' })
     const isValid = await bcrypt.compare(password, user.password)
     if(!isValid) return res.status(403).json({message: 'Wrong email or password'})
-    const accessToken = await JWT.sign({user: user.name, uid: user._id }, process.env.ACCESS_TOKEN, {expiresIn: '30m'})
+    const accessToken = await JWT.sign({user: {name: user.name, id: user._id, role: user.role} }, process.env.ACCESS_TOKEN, {expiresIn: '30m'})
     res.status(200).json({
       message: 'Loggin successful', 
       user: {
         id: user._id,
-        username: user.username,
-        email: user.email
+        name: user.name,
+        email: user.email,
+        phone: user.phone,
+        role: user.role
       },
      accessToken})
   } catch (error) {
