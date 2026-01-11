@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 
 const roomSchema = mongoose.Schema({
+  owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+      index: true,
+    },
   roomTitle:{
     type: String,
     required: true,
@@ -24,4 +30,4 @@ const roomSchema = mongoose.Schema({
   timestamps: true
 })
 
-module.exports = mongoose.model('RoomModel', roomSchema)
+module.exports = mongoose.model('Room', roomSchema)

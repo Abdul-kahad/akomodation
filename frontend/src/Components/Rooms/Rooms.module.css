@@ -1,0 +1,17 @@
+.Rooms{
+  padding: 2rem 0;
+}
+
+.RoomsContainer{
+  padding: 0 2rem;
+}
+
+.RoomsHeader > h2{
+  margin-bottom: 2rem;
+}
+
+.RoomsGrid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(400px, 1fr)); 
+  gap: 2rem;
+}

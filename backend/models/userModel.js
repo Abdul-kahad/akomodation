@@ -2,12 +2,15 @@
 const mongoose = require('mongoose')
 
 const userSchema = mongoose.Schema({
+  roomId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Room',
+    },
   name: {
     type: String,
     required: true,
     index: true
   },
-
   email: {
     type: String,
     required: true,

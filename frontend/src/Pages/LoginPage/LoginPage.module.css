@@ -1,0 +1,70 @@
+.LoginPage{
+  background-color: rgb(179, 79, 21);
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FormContainer{
+  /* width: 60%; */
+  background-color: white;
+  padding: 2rem;
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  border-radius: 1rem;
+  word-break: break-all;
+}
+
+.Welcome > h2{
+  font-size: 3rem;
+}
+
+.Img{
+  height: 350px;
+  margin: 10px;
+}
+
+.Form{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.2);
+  padding: 2rem;
+  border-radius: 0.8rem;
+  width: 320px;
+}
+
+.Form > h2{
+  margin-bottom: 1rem;
+}
+
+.Form > label{
+  font-weight: 500;
+}
+
+.Form > input{
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid rgb(223, 88, 10);
+  outline: navajowhite;
+  border-radius: 5px;
+  margin-bottom: 0.3rem;
+
+}
+
+.Form > button{
+  width: 100%;
+  padding: 0.4rem;
+  border: none;
+  background-color: rgb(179, 79, 21);
+  color: white;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.Form > button:hover{
+  background-color: rgb(122, 49, 6);
+}

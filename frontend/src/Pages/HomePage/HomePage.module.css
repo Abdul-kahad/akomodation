@@ -1,0 +1,8 @@
+.HomePage{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.Body{
+  flex-grow: 1;
+}

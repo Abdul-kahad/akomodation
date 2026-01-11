@@ -1,0 +1,23 @@
+.Filter{
+  display: flex;
+  align-items: center;
+  height: 4rem;
+  padding: 2rem;
+  border-bottom: 1px solid #ccc;
+}
+
+.SearchInput{
+  padding: 0.5rem;
+  width: 30%;
+  border-radius: 2rem;
+}
+
+.FilterGroup{
+  display: flex;
+  align-items: center;
+}
+
+.FilterItem{
+  padding: 1.2rem;
+  cursor: pointer;
+}
