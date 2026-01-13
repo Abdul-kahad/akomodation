@@ -1,16 +1,16 @@
 import classes from './RoomCard.module.css'
 
-const RoomCard = () => {
+const RoomCard = (props) => {
   return(
     <div className={classes.RoomCard}>
       <div className={classes.RoomImagConatiner}>
         <img className={classes.RoomImg} src alt />
       </div>
       <div className={classes.RoomInfo}>
-        <h3>Title</h3>
-        <p>Description Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, eius!</p>
-        <small>Loction</small>
-        <p>Price</p>
+        <h3>{props.roomTitle}</h3>
+        <p>{props.roomDescription}</p>
+        <small>{props.roomLocation}</small>
+        <p>{props.roomPrice}</p>
         <button>Book</button>
       </div>
     </div> 

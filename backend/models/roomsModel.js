@@ -22,6 +22,16 @@ const roomSchema = mongoose.Schema({
     required: true,
     trim: true
   },
+  roomPrice:{
+    type: Number,
+    required: true,
+    trim: true
+  },
+  roomQuantity:{
+    type: Number,
+    required: true,
+    trim: true
+  },
   booked: {
     type: Boolean,
     default: false
