@@ -11,6 +11,7 @@ const RoomCard = (props) => {
         <p>{props.roomDescription}</p>
         <small>{props.roomLocation}</small>
         <p>{props.roomPrice}</p>
+        <p>{props.roomQuantity}</p>
         <button>Book</button>
       </div>
     </div> 

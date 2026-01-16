@@ -1,5 +1,7 @@
 .Rooms{
   padding: 2rem 0;
+  /* overflow: hidden; */
+  height: 1000px;
 }
 
 .RoomsContainer{

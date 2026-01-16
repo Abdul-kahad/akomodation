@@ -1,19 +1,19 @@
 const Room = require('../models/roomsModel')
 
 const addRoom = async(req, res) => {
-  const { roomTitle, roomDescription, roomLocation } = req.body
-  if( !roomTitle || !roomDescription || !roomLocation) return res.status(400).json({message: 'Please enter all fields'})
+  const { roomTitle, roomDescription, roomLocation, roomPrice, roomQuantity } = req.body
+  if( !roomTitle || !roomDescription || !roomLocation, !roomPrice, !roomQuantity) return res.status(400).json({message: 'Please enter all fields'})
   try {
-    const room = await Room.create({roomTitle, roomDescription, roomLocation})
+    const room = await Room.create({roomTitle, roomDescription, roomLocation, roomPrice, roomQuantity})
     res.status(201).json({message: 'Room added successful', room})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
     console.log('Adding room error:', error)
   }
 }
-
+ 
 const updateRoom = async(req, res) => {
-  const { roomTitle, roomDescription, roomLocation } = req.body
+  const { roomTitle, roomDescription, roomLocation, roomPrice, roomQuantity } = req.body
   const { roomId } = req.params
   try {
     const room = await Room.findById(roomId)
@@ -23,7 +23,9 @@ const updateRoom = async(req, res) => {
     const updatedRoom = {
       roomTitle: roomTitle || room.roomTitle,
       roomDescription: roomDescription || room.roomDescription , 
-      roomLocation: roomLocation || room.roomLocation
+      roomLocation: roomLocation || room.roomLocation,
+      roomPrice: roomPrice || room.roomPrice, 
+      roomQuantity: roomQuantity || room.roomQuantity
     }
     await Room.findByIdAndUpdate(roomId, updatedRoom)
     res.status(200).json({message: 'Room updated successful', updatedRoom})

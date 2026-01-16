@@ -14,7 +14,7 @@ router.post('/api/register', register)
 router.post('/api/login', login)
 router.delete('/api/logout', authenticate, logout)
 
-router.get('/rooms', getAllRooms)
+router.get('/', getAllRooms)
 router.get('/rooms/:roomId', getSingleRoom)
 
 router.get('/api/user/profile', authenticate, userProfile)

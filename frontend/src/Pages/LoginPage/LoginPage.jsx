@@ -3,23 +3,24 @@ import Axios from 'axios'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const navigate = useNavigate()
-
-const [ formData, setFormData ] = useState({})
-const [ serverMSG, setServerMSG ] = useState('')
 
 const LoginPage = () =>{
+  const navigate = useNavigate()
+  
+  const [ formData, setFormData ] = useState({})
+  const [ serverMSG, setServerMSG ] = useState('')
 
   const LoginHandler = async (e) =>{
-    e.preventDefault
+    e.preventDefault()
     try {
       const response = await Axios.post('http://localhost:3000/api/login', formData)
-      setServerMSG(response.message)
+      setServerMSG(response.data.message)
+      localStorage.setItem('accessToken', response.data.accessToken)
       navigate('/')
-      alert(serverMSG)
+      alert(`${serverMSG}`)
     } catch (error) {
       console.log(`An error occure: ${error}`)
-      throw new Error(error)
+      setServerMSG('Login failed' || error.data.message)
     }
   }
 
@@ -29,26 +30,26 @@ const LoginPage = () =>{
         <div className={classes.Welcome}>
           <h2>Welcome Back</h2>
           <p>Take a look at your space and keep contact</p>
-          <img className={classes.Img} src alt="" />
+          <img className={classes.Img} />
           <span>
             <small>Don't have an account?<a href="#">Register</a></small>
           </span>
         </div>
-        <form className={classes.Form}>
+        <form className={classes.Form} onSubmit={(e) => LoginHandler(e)}>
           <h2>Login</h2>
           {serverMSG ?? <p>{serverMSG}</p> }
           <label>Email</label>
           <input 
-            type="text" 
+            type="email" 
             placeholder='Enter your email'
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             value={ formData.email }/>
           <label>Password</label>
           <input 
-            type="text" 
+            type="password" 
             placeholder='******'
             onChange={(e) => setFormData({...formData, password: e.target.value})}/>
-          <button onClick={(e) => LoginHandler(e)}>Login</button>
+          <button>Login</button>
         </form>
       </div>
     </div>

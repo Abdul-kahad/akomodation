@@ -3,23 +3,22 @@ import Axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 import classes from './RegisterPage.module.css'
 
-const navigate = useNavigate()
-
-const [ formData, setFormData] = useState({})
-const [ serverMSG, setServerMSG ] = useState('')
-
+ 
 const RegisterPage = () =>{
+  const navigate = useNavigate()
+  
+  const [ formData, setFormData] = useState({})
+  const [ serverMSG, setServerMSG ] = useState('')
 
   const registerHandler = async (e) =>{
-    e.preventDefault
+    e.preventDefault()
     try {
       const response = await Axios.post('http://localhost:3000/api/register', formData)
-      setServerMSG(response.message)
-      navigate('/api/login')
-      alert(serverMSG)
+      navigate('/login')
+      alert(`${serverMSG}`)
     } catch (error) {
       console.log(`An error occure: ${error}`)
-      throw new Error(error)
+      setServerMSG('Registration failed' || error.data.message)
     }
 }
 
@@ -29,7 +28,7 @@ const RegisterPage = () =>{
         <div className={classes.Welcome}>
           <h2>Welcome</h2>
           <p>Find a place you can call home, sign up to secure yours</p>
-          <img className={classes.Img} src alt="" />
+          <img className={classes.Img}/>
           <span>
             <small>Already have an account?<a href="#">Login</a></small>
           </span>
@@ -51,7 +50,7 @@ const RegisterPage = () =>{
             value={formData.country}/>
           <label>Email</label>
           <input 
-            type="text" 
+            type="email" 
             placeholder='e.g abdulkahad0500@gmail.com'
             onChange={(e) => setFormData({...formData, email: e.target.value})}
             value={formData.email}/>
@@ -63,13 +62,13 @@ const RegisterPage = () =>{
             value={formData.phone}/>
           <label>Password</label>
           <input 
-            type="text" 
+            type="password" 
             placeholder='******'
             onChange={(e) => setFormData({...formData, password: e.target.value})}
             value={formData.password}/>
           <label>Confirm password</label>
           <input 
-            type="text" 
+            type="password" 
             placeholder='******'
             onChange={(e) => setFormData({...formData, cpassword: e.target.value})}
             value={formData.cpassword}/>

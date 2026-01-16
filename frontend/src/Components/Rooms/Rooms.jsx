@@ -3,24 +3,25 @@ import Axios from 'axios'
 import { useState, useEffect } from 'react'
 import classes from './Rooms.module.css'
 
-const [ rooms, setRooms ] = useState([])
-const [ serverMSG, setServerMSG ] = useState('') 
+const Rooms = () => {
+  const [ rooms, setRooms ] = useState([])
+  const [ serverMSG, setServerMSG ] = useState('') 
 
-const getRoomsHandler = () =>{
+  const getRoomsHandler = async () =>{
   try {
-    const response = Axios.get('http://localhost:3000/')
-    setRooms(response.data)
-    setServerMSG(response.message)
+    const response = await Axios.get('http://localhost:3000/')
+    setRooms(response.data.rooms)
   } catch (error) {
     console.log(`An error occure: ${error}`)
-    throw new Error(error)
+    setServerMSG('Failed to fetch rooms')
   }
 }
+  useEffect(() => { getRoomsHandler() }, [])
 
-const Rooms = () => {
-  useEffect(getRoomsHandler, [])
+  if (rooms.length === 0) {
+    return <h2>{serverMSG || 'No rooms available'}</h2>
+  }
   return(
-    (!rooms) ? <h2>{serverMSG}</h2> :
      <div className={classes.Rooms}>
       <div className={classes.RoomsContainer}>
         <div className={classes.RoomsHeader}>

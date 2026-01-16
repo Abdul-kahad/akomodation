@@ -8,7 +8,7 @@ import classes from './HomePage.module.css'
 const HomePage = () => {
   return(
     <div className={classes.HomePage}>
-      <SideNav />
+      <SideNav /> 
       <div className={classes.Body}>
         <Filter />
         <NewArivals />

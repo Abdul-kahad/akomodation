@@ -22,7 +22,7 @@
 }
 
 .Img{
-  height: 350px;
+  /* height: 350px; */
   margin: 10px;
 }
 
@@ -46,8 +46,8 @@
 .Form > input{
   width: 100%;
   padding: 0.4rem;
-  border: 1px solid rgb(223, 88, 10);
-  outline: navajowhite;
+  border: 1px solid rgb(223, 88, 10,0.5);
+  outline: none;
   border-radius: 5px;
   margin-bottom: 0.3rem;
 

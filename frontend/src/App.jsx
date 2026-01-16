@@ -1,9 +1,10 @@
 
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './Components/Navbar/Navbar'
-import HomePage from './Pages/HomePage/HomePage'
 import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import LoginPage from './Pages/LoginPage/LoginPage'
+import HomePage from './Pages/HomePage/HomePage'
+import AddNewRoomPage from './Pages/AddNewRoomPage/AddNewRoomPage'
 
 function App() {
   return (
@@ -14,6 +15,12 @@ function App() {
             <HomePage />
           </>} 
           />
+        <Route path='/create/newpost' element={
+          <>
+            <Navbar />
+            <AddNewRoomPage />
+          </>
+        }/>
         <Route path='/register' element={<RegisterPage/>} />
         <Route path='/login' element={<LoginPage/>} />
       </Routes>
