@@ -24,13 +24,11 @@ const roomSchema = mongoose.Schema({
   },
   roomPrice:{
     type: Number,
-    required: true,
-    trim: true
+    required: true
   },
   roomQuantity:{
     type: Number,
-    required: true,
-    trim: true
+    required: true
   },
   booked: {
     type: Boolean,

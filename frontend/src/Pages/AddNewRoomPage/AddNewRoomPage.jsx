@@ -1,28 +1,49 @@
-import { Axios } from 'axios'
+import  Axios  from 'axios'
 import { useState } from 'react'
 import RoomCard from '../../Components/Rooms/RoomCard/RoomCard'
 import classes from './AddNewRoomPage.module.css'
-
+import { useNavigate } from 'react-router-dom'
 
 const AddNewRoomPage = () => {
   const [formData, setFormData] = useState({})
   const [serverMSG, setServerMSG] = useState('')
-
-  const AddNewRoomHandler = async (e) =>{
+  const navigate = useNavigate()
+  const AddNewRoomHandler = async (e) => {
     e.preventDefault()
+  
+    const token = localStorage.getItem('accessToken')
+  
+    if (!token) {
+      alert('You are not authorized. Please login.')
+      return
+    }
+  
     try {
-      const response = await Axios.post('http://localhost:3000/api/moderator/rooms', formData,{
-        Headers:{
-          authenticate: localStorage.getItem('accessToken')
+      const response = await Axios.post(
+        'http://localhost:3000/api/moderator/rooms',
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
+          }
         }
-      })
-      setServerMSG(response.data.message)
-      alert(`${serverMSG}`)
+      )
+  
+      alert(response.data.message) // ✅ use response directly
+      navigate('/')
+  
     } catch (error) {
-      console.log(`An error occure: ${error}`)
-      setServerMSG('Failed to add room' || error.data.message)
+      console.error('Add room error:', error)
+  
+      const message =
+        error.response?.data?.message || 'Failed to add room'
+  
+      setServerMSG(message)
+      alert(message)
     }
   }
+  
   return(
     <div className={classes.AddNewRoomPage}>
       <div className={classes.Container}>
@@ -45,12 +66,12 @@ const AddNewRoomPage = () => {
             <input type="number" onChange={(e) => setFormData({...formData, roomQuantity: e.target.value})} placeholder='e.g 2'/>
             <button>Add Room</button>
           </form>
-          {(formData.roomTitle == '') ? null : <RoomCard 
+          {formData.roomTitle ? <RoomCard 
             roomTitle={formData.roomTitle}
             roomDescription={formData.roomDescription}
             roomLocation={formData.roomLocation}
             roomPrice={formData.roomPrice}
-            roomQuantity={formData.roomQuantity}/>
+            roomQuantity={formData.roomQuantity}/> : null
             }
         </div>
       </div>

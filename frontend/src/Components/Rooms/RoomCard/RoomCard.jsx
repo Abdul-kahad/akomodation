@@ -4,7 +4,7 @@ const RoomCard = (props) => {
   return(
     <div className={classes.RoomCard}>
       <div className={classes.RoomImagConatiner}>
-        <img className={classes.RoomImg} src alt />
+        <img className={classes.RoomImg} />
       </div>
       <div className={classes.RoomInfo}>
         <h3>{props.roomTitle}</h3>

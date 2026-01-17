@@ -16,6 +16,7 @@ const LoginPage = () =>{
       const response = await Axios.post('http://localhost:3000/api/login', formData)
       setServerMSG(response.data.message)
       localStorage.setItem('accessToken', response.data.accessToken)
+      localStorage.setItem('userRole', response.data.user.role)
       navigate('/')
       alert(`${serverMSG}`)
     } catch (error) {
