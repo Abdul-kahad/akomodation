@@ -1,0 +1,60 @@
+.UpdateRoomPage{
+  padding: 50px 20px 100px;
+}
+
+.Container{
+  margin: 0 5rem;
+}
+
+.Header{
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.Flex{
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+
+.Form{
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border-radius: 0.8rem;
+  width: 320px;
+  background-color: #eee;
+}
+
+.Form > label{
+  font-weight: 500;
+}
+
+.Form > input{
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid rgba(223, 88, 10, 0.5);
+  outline: none;
+  border-radius: 5px;
+  margin-bottom: 0.3rem;
+
+}
+
+.Form > button{
+  width: 100%;
+  padding: 0.4rem;
+  border: none;
+  background-color: rgb(179, 79, 21);
+  color: white;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.Form > button:hover{
+  background-color: rgb(122, 49, 6);
+}

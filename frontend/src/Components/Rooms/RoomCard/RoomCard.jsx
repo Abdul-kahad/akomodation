@@ -2,7 +2,7 @@ import classes from './RoomCard.module.css'
 
 const RoomCard = (props) => {
   return(
-    <div className={classes.RoomCard}>
+    <div className={classes.RoomCard} onClick={props.clicked}>
       <div className={classes.RoomImagConatiner}>
         <img className={classes.RoomImg} />
       </div>

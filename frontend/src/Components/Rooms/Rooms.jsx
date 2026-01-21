@@ -1,9 +1,11 @@
 import RoomCard from './RoomCard/RoomCard'
 import Axios from 'axios'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router'
 import classes from './Rooms.module.css'
 
 const Rooms = () => {
+  const navigate = useNavigate()
   const [ rooms, setRooms ] = useState([])
   const [ serverMSG, setServerMSG ] = useState('') 
 
@@ -30,6 +32,7 @@ const Rooms = () => {
         <div className={classes.RoomsGrid}>
           {rooms.map( room => (
             <RoomCard 
+              clicked={() => navigate(`/update/updateroom/${room._id}`)}
               key={room._id}
               roomTitle = {room.roomTitle}
               roomDescription = {room.roomDescription}

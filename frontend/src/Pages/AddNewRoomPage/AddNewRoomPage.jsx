@@ -54,7 +54,7 @@ const AddNewRoomPage = () => {
           <form className={classes.Form} onSubmit={(e) => AddNewRoomHandler(e)}>
             <label>Add at most 3 images</label>
             <input type="file" />
-            <label>Title</label>
+            <label>Title</label> 
             <input type="text" onChange={(e) => setFormData({...formData, roomTitle: e.target.value})} placeholder='e.g Chamber and Hall'/>
             <label>Description</label>
             <input type="text" onChange={(e) => setFormData({...formData, roomDescription: e.target.value})} placeholder='e.g This a a furnished chamber and hall'/>

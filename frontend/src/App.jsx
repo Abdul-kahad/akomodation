@@ -5,6 +5,7 @@ import RegisterPage from './Pages/RegisterPage/RegisterPage'
 import LoginPage from './Pages/LoginPage/LoginPage'
 import HomePage from './Pages/HomePage/HomePage'
 import AddNewRoomPage from './Pages/AddNewRoomPage/AddNewRoomPage'
+import UpdateRoomPage from './Pages/UpdateRoomPage/UpdateRoomPage'
 
 function App() {
   return (
@@ -19,6 +20,12 @@ function App() {
           <>
             <Navbar />
             <AddNewRoomPage />
+          </>
+        }/>
+        <Route path='/update/updateroom/:roomId' element={
+          <>
+            <Navbar />
+            <UpdateRoomPage />
           </>
         }/>
         <Route path='/register' element={<RegisterPage/>} />
