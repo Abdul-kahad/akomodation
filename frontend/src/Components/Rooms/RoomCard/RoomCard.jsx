@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import classes from './RoomCard.module.css'
 
 const RoomCard = (props) => {
@@ -12,7 +13,7 @@ const RoomCard = (props) => {
         <small>{props.roomLocation}</small>
         <p>{props.roomPrice}</p>
         <p>{props.roomQuantity}</p>
-        <button>Book</button>
+        <Link to='/book/room' hidden={props.hidden}><button>Book</button></Link>
       </div>
     </div> 
   )

@@ -1,7 +1,7 @@
 import classes from './LoginPage.module.css'
 import Axios from 'axios'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
 
 const LoginPage = () =>{
@@ -33,7 +33,7 @@ const LoginPage = () =>{
           <p>Take a look at your space and keep contact</p>
           <img className={classes.Img} />
           <span>
-            <small>Don't have an account?<a href="#">Register</a></small>
+            <NavLink to='/register'><small>Don't have an account? Register</small></NavLink>
           </span>
         </div>
         <form className={classes.Form} onSubmit={(e) => LoginHandler(e)}>

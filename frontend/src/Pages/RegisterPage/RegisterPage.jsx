@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import Axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import classes from './RegisterPage.module.css'
 
  
@@ -30,7 +30,7 @@ const RegisterPage = () =>{
           <p>Find a place you can call home, sign up to secure yours</p>
           <img className={classes.Img}/>
           <span>
-            <small>Already have an account?<a href="#">Login</a></small>
+           <NavLink to='/login'><small>Already have an account?Login</small></NavLink>
           </span>
         </div>
         <form className={classes.Form}>

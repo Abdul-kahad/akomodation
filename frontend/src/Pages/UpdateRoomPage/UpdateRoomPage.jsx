@@ -90,7 +90,8 @@ const UpdateRoomPage = () => {
             roomDescription={formData.roomDescription}
             roomLocation={formData.roomLocation}
             roomPrice={formData.roomPrice}
-            roomQuantity={formData.roomQuantity}/>
+            roomQuantity={formData.roomQuantity}
+            hidden={true}/>
         </div>
       </div>
     </div>

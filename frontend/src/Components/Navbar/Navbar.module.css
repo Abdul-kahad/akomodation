@@ -11,6 +11,7 @@
 
 .Logo{
   font-size: 1.5rem;
+  color: white;
   cursor: pointer;
 }
 
@@ -23,10 +24,11 @@
   padding: 20px;
   cursor: pointer;
   transition: all 0.3s;
+  color: white;
 }
 
 .Listitem:hover{
-  color: rgb(116, 44, 2);
+  color: rgb(255, 94, 0);
 }
 
 .Signup{
@@ -38,6 +40,10 @@
   color: rgb(116, 44, 2);
   transition: all 0.3s;
   cursor: pointer;
+}
+
+.Logout{
+  color: rgb(116, 44, 2);
 }
 
 .Signup:hover{
