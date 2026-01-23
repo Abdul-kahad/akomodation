@@ -13,7 +13,7 @@ const RoomCard = (props) => {
         <small>{props.roomLocation}</small>
         <p>{props.roomPrice}</p>
         <p>{props.roomQuantity}</p>
-        <Link to='/book/room' hidden={props.hidden}><button>Book</button></Link>
+        <Link to='/book/room' hidden={props.hidden}><button>View Details</button></Link>
       </div>
     </div> 
   )

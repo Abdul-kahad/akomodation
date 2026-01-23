@@ -20,9 +20,9 @@ router.get('/rooms/:roomId', getSingleRoom)
 router.get('/api/user/profile', authenticate, userProfile)
 router.get('/api/user/profile/settings', authenticate, userProfileSettings)
 
-router.post('/api/user/room/:roomId', authenticate, bookRoom)
-router.get('/api/user/room', authenticate, bookedRoom)
-router.delete('/api/user/room/:roomId', authenticate, unBookedRoom)
+router.put('/api/user/bookroom/:roomId', authenticate, bookRoom)
+router.get('/api/user/bookedrooms', authenticate, bookedRoom)
+router.delete('/api/user/unbookroom/:roomId', authenticate, unBookedRoom)
 
 router.delete('/api/user/terminatecontract', authenticate, terminateContract)
 

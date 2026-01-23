@@ -32,7 +32,7 @@ const Rooms = () => {
         <div className={classes.RoomsGrid}>
           {rooms.map( room => (
             <RoomCard 
-              clicked={() => navigate(`/update/updateroom/${room._id}`)}
+              clicked={() => {navigate(`/viewroom/${room._id}`)}}
               key={room._id}
               roomTitle = {room.roomTitle}
               roomDescription = {room.roomDescription}

@@ -6,6 +6,8 @@ import LoginPage from './Pages/LoginPage/LoginPage'
 import HomePage from './Pages/HomePage/HomePage'
 import AddNewRoomPage from './Pages/AddNewRoomPage/AddNewRoomPage'
 import UpdateRoomPage from './Pages/UpdateRoomPage/UpdateRoomPage'
+import ViewRoomPage from './Pages/ViewRoomPage/ViewRoomPage'
+import ProfilePage from './Pages/ProfilePage/ProfilePage'
 
 function App() {
   return (
@@ -26,6 +28,18 @@ function App() {
           <>
             <Navbar />
             <UpdateRoomPage />
+          </>
+        }/>
+        <Route path='/viewroom/:roomId' element={
+          <>
+            <Navbar />
+            <ViewRoomPage />
+          </>
+        }/>
+        <Route path='/profile' element={
+          <>
+            <Navbar />
+            <ProfilePage />
           </>
         }/>
         <Route path='/register' element={<RegisterPage/>} />
