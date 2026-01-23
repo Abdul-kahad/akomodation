@@ -15,7 +15,7 @@ const RegisterPage = () =>{
     try {
       const response = await Axios.post('http://localhost:3000/api/register', formData)
       navigate('/login')
-      alert(`${serverMSG}`)
+      alert(response.data.message)
     } catch (error) {
       console.log(`An error occure: ${error}`)
       setServerMSG('Registration failed' || error.data.message)

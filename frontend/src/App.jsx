@@ -16,7 +16,7 @@ function App() {
             <HomePage />
           </>} 
           />
-        <Route path='/create/addroom' element={
+        <Route path='/addroom' element={
           <>
             <Navbar />
             <AddNewRoomPage />

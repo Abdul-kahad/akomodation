@@ -30,7 +30,7 @@ const AddNewRoomPage = () => {
         }
       )
   
-      alert(response.data.message) // ✅ use response directly
+      alert(response.data.message) 
       navigate('/')
   
     } catch (error) {
@@ -71,7 +71,8 @@ const AddNewRoomPage = () => {
             roomDescription={formData.roomDescription}
             roomLocation={formData.roomLocation}
             roomPrice={formData.roomPrice}
-            roomQuantity={formData.roomQuantity}/> : null
+            roomQuantity={formData.roomQuantity}
+            hidden={true}/> : null
             }
         </div>
       </div>

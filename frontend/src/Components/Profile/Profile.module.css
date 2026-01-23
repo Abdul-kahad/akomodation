@@ -1,0 +1,18 @@
+.Profile{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.ProfilePic{
+  width: 50px;
+  height: 50px;
+  clip-path: circle();
+  background-color: blueviolet;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.Profile > p{
+  margin-left: 10px;
+  font-weight: 600;
+}

@@ -18,7 +18,7 @@ const LoginPage = () =>{
       localStorage.setItem('accessToken', response.data.accessToken)
       localStorage.setItem('userRole', response.data.user.role)
       navigate('/')
-      alert(`${serverMSG}`)
+      alert(response.data.message)
     } catch (error) {
       console.log(`An error occure: ${error}`)
       setServerMSG('Login failed' || error.data.message)

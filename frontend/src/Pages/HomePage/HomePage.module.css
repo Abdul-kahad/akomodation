@@ -1,6 +1,7 @@
 .HomePage{
   display: flex;
   flex-wrap: nowrap;
+  position: relative;
 }
 
 .Body{

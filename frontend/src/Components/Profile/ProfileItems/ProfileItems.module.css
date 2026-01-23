@@ -1,0 +1,31 @@
+.ProfileItems{
+  position: absolute;
+  top: 5.5rem;
+  right: 0;
+  background-color: white;
+  padding: 2rem;
+  width: 25%;
+  z-index: 100;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.ListItems{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ListItems > li {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  color: #333;
+}
+
+.ListItems > li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+
+.NavLink {
+  color: inherit;
+}
