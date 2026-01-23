@@ -19,8 +19,6 @@ const ViewRoomPage = () => {
 
 const BookRoomHandler = async () => {
   try {
-    console.log('1')
-    console.log(room)
     const response = await Axios.put(`http://localhost:3000/api/user/bookroom/${roomId}`,{
       headers:{
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`

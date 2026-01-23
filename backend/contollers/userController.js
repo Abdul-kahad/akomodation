@@ -49,7 +49,7 @@ const bookRoom = async (req, res) => {
     }
 
     room.booked = true
-    room.mid = userId
+    room.owner = userId
 
     await room.save()
 
