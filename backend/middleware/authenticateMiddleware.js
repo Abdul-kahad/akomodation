@@ -10,7 +10,6 @@ const authenticate = async (req, res, next) => {
     const isValidUser = await User.findById(userId).select('-password')
     if(!isValidUser) return res.status(400).json({message: 'Please login, invalid user'})
     req.user = isValidUser
-    // console.log(`Authenticated user: ${isValidUser}`, accessToken, decoded)
     next()
   } catch (error) {
     res.status(401).json({message: 'Invalid token or expired token'})

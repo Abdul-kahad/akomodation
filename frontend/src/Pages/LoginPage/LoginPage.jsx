@@ -38,7 +38,7 @@ const LoginPage = () =>{
         </div>
         <form className={classes.Form} onSubmit={(e) => LoginHandler(e)}>
           <h2>Login</h2>
-          {serverMSG ?? <p>{serverMSG}</p> }
+          {serverMSG ?? <p style={{color: red}}>{serverMSG}</p> }
           <label>Email</label>
           <input 
             type="email" 

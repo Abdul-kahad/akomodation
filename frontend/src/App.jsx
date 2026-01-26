@@ -8,6 +8,7 @@ import AddNewRoomPage from './Pages/AddNewRoomPage/AddNewRoomPage'
 import UpdateRoomPage from './Pages/UpdateRoomPage/UpdateRoomPage'
 import ViewRoomPage from './Pages/ViewRoomPage/ViewRoomPage'
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
+import MyBookingsPage from './Pages/MyBookingsPage/MyBookingsPage'
 
 function App() {
   return (
@@ -34,6 +35,12 @@ function App() {
           <>
             <Navbar />
             <ViewRoomPage />
+          </>
+        }/>
+         <Route path='/mybookings' element={
+          <>
+            <Navbar />
+            <MyBookingsPage />
           </>
         }/>
         <Route path='/profile' element={

@@ -19,16 +19,17 @@ const ViewRoomPage = () => {
 
 const BookRoomHandler = async () => {
   try {
-    const response = await Axios.put(`http://localhost:3000/api/user/bookroom/${roomId}`,{
+    const response = await Axios.put(`http://localhost:3000/api/user/bookroom/${roomId}`,{},{
       headers:{
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }
     })
     setServerMSG(response.data.message)
     alert(response.data.message)
-    navigate('/mybookings')
+    navigate(`/mybookings`)
   } catch (error) {
     console.log('An error occured:', error)
+    alert(error.response.data.message)
   }
 }
 

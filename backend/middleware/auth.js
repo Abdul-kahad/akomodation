@@ -29,16 +29,9 @@ const login = async (req, res) => {
     if(!isValid) return res.status(403).json({message: 'Wrong credentials'})
     const accessToken = await JWT.sign({user: {name: user.name, id: user._id, role: user.role} }, process.env.ACCESS_TOKEN, {expiresIn: '30m'})
     res.status(200).json({
-      message: 'Loggin successful', 
-      user: {
-        id: user._id,
-        name: user.name,
-        country: user.country,
-        email: user.email,
-        phone: user.phone,
-        role: user.role
-      },
-     accessToken})
+      message: 'Loggin successful',
+      user: { role: user.role },
+      accessToken})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
     console.log(`Login error: ${error}`)
