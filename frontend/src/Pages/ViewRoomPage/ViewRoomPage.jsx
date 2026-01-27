@@ -40,7 +40,7 @@ const BookRoomHandler = async () => {
         <h2>Room Details</h2>
       </div>
       <div className={classes.roomBox}>
-        <img className={classes.roomImage} src={room.roomImage} alt={room.roomTitle} />
+        <img className={classes.roomImage} alt={room.roomTitle} />
         <div className={classes.roomInfo}>
           <h3>{room.roomTitle}</h3>
           <p><strong>Description:</strong> {room.roomDescription}</p>

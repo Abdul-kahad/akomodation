@@ -17,7 +17,7 @@ router.delete('/api/logout', authenticate, logout)
 router.get('/', getAllRooms)
 router.get('/rooms/:roomId', getSingleRoom)
 
-router.get('/api/user/profile', authenticate, userProfile)
+router.get('/api/user/profile', authenticate, userProfile) 
 router.get('/api/user/profile/settings', authenticate, userProfileSettings)
 
 router.put('/api/user/bookroom/:roomId', authenticate, bookRoom)

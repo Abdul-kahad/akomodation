@@ -1,7 +1,6 @@
 import Axios from 'axios'
-import classes from './MyBookingsPage.module.css'
 import { useState, useEffect } from 'react'
-import RoomCard from '../../Components/Rooms/RoomCard/RoomCard'
+import classes from './MyBookingsPage.module.css'
 
 const MyBookingsPage = () => {
   const [room, setRoom] = useState([])
@@ -25,14 +24,17 @@ const MyBookingsPage = () => {
       <h1>My Room</h1>
       {serverMSG && <p className={classes.serverMSG}>{serverMSG}</p>}
       {room.map(room => (
-        <RoomCard 
-        key={room._id}
-        roomTitle={room.roomTitle} 
-        roomImage={room.roomImage} 
-        roomDescription={room.roomDescription} 
-        roomLocation={room.roomLocation} 
-        roomPrice={room.roomPrice}
-        booked={room.booked} />))}
+        <div className={classes.roomBox} key={room._id}>
+          <img className={classes.roomImage} alt={room.roomTitle} />
+          <div className={classes.roomInfo}>
+            <h3>{room.roomTitle}</h3>
+            <p><strong>Description:</strong> {room.roomDescription}</p>
+            <p><strong>Location:</strong> {room.roomLocation}</p>
+            <p><strong>Price:</strong> ${room.roomPrice}</p>
+            <p><strong>Quantity:</strong> {room.roomQuantity}</p>
+            <p><strong>Status:</strong> {room.booked ? "Booked" : "Available"}</p>
+          </div>
+        </div>))}
     </div>
   )
 }
