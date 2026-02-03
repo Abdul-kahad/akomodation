@@ -14,9 +14,8 @@ const ProfileItems = () => {
         <li><NavLink className={classes.NavLink} to='/profile'>Profile</NavLink></li>
         <li><NavLink className={classes.NavLink} to='/mybookings'>My Bookings</NavLink></li>
         <li><NavLink className={classes.NavLink} to='/addroom'>Add Room</NavLink></li>
-        <li><NavLink className={classes.NavLink} to='#'>Booking History</NavLink></li>
+        <li><NavLink className={classes.NavLink} to='/booking/history'>Booking History</NavLink></li>
         <li><NavLink className={classes.NavLink} to='#'>Inbox</NavLink></li>
-        <li><NavLink className={classes.NavLink} to='#'>Booking History</NavLink></li>
         <li><NavLink className={classes.NavLink} to='#'>Settings</NavLink></li>
         <li onClick={LogoutHandler}>Logout</li>
       </ul>

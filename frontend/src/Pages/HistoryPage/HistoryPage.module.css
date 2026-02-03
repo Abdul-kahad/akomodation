@@ -1,0 +1,26 @@
+.HistoryPage{
+  padding: 50px 20px 100px;
+}
+
+.HistoryPage > h2{
+  margin-bottom: 1.2rem;
+}
+
+.HistoryCard{
+  width: 100%;
+  margin-bottom: 1rem;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.Img{
+  height: inherit;
+  width: 200px;
+}
+
+.HistoryBody{
+  padding: 1rem;
+  line-height: 2rem;
+}

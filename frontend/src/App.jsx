@@ -9,6 +9,7 @@ import UpdateRoomPage from './Pages/UpdateRoomPage/UpdateRoomPage'
 import ViewRoomPage from './Pages/ViewRoomPage/ViewRoomPage'
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
 import MyBookingsPage from './Pages/MyBookingsPage/MyBookingsPage'
+import HistoryPage from './Pages/HistoryPage/HistoryPage'
 
 function App() {
   return (
@@ -47,6 +48,12 @@ function App() {
           <>
             <Navbar />
             <ProfilePage />
+          </>
+        }/>
+         <Route path='/booking/history' element={
+          <>
+            <Navbar />
+            <HistoryPage />
           </>
         }/>
         <Route path='/register' element={<RegisterPage/>} />
