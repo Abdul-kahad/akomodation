@@ -62,6 +62,9 @@ const bookedRoom = async (req, res) => {
   const userId = req.user._id
   try {
     const room = await Room.find({ tenant: userId })
+    if(!room || room.length === 0){
+      return res.status(404).json({ message: 'You dont have any booked rooms yet' })
+    }
     res.status(200).json(room)
   } catch (error) {
     res.status(500).json({ message: 'Error fetching booked room' })

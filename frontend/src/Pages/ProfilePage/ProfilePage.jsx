@@ -5,8 +5,8 @@ import classes from './ProfilePage.module.css'
 
 const ProfilePage = () => {
   const [user, setUser] = useState({})
-  const [room, setRoom] = useState({})
-  const [serverMSG, setServerMSG] = useState()
+  const [room, setRoom] = useState([])
+  const [serverMSG, setServerMSG] = useState('')
 
   useEffect(() => {
     const getUser = async() =>{
@@ -19,19 +19,21 @@ const ProfilePage = () => {
     }
     getUser()
     
-    const fetchRoom = async () => {
-      const response = await Axios.get(`http://localhost:3000/api/user/bookedrooms`,{
-        headers:{
-          Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-        }
-      })
-      setRoom(response.data[0])
-      setServerMSG(response.data.message)
+    const fetchRoom = async() => {
+      try {
+        const response = await Axios.get(`http://localhost:3000/api/user/bookedrooms`,{
+          headers:{
+            Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+          }
+        })
+        setRoom(response.data)
+      } catch (error) {
+        setServerMSG(error.response?.data?.message || 'Error fetching booked room')
+        console.error('Error fetching booked room:', error)
+      }
     }
     fetchRoom()
   },[])
-
-  console.log(room)
 
   return (
     <div className={classes.container}>
@@ -52,14 +54,14 @@ const ProfilePage = () => {
           </div>
           <div className={classes.UserBookings}>
             <h2>My Room</h2>
-            {serverMSG ?? <p>{serverMSG}</p>}
-            <RoomCard 
-              roomTitle = {room.roomTitle}
-              roomDescription = {room.roomDescription}
-              roomLocation = {room.roomLocation}
-              roomPrice = {room.roomPrice}
-              roomQuantity = {room.roomQuantity}
-              booked = {room.booked}/>
+            {room.length > 0 ? <RoomCard 
+              roomTitle = {room[0].roomTitle}
+              roomDescription = {room[0].roomDescription}
+              roomLocation = {room[0].roomLocation}
+              roomPrice = {room[0].roomPrice}
+              roomQuantity = {room[0].roomQuantity}
+              booked = {room[0].booked}/> : <h3>{serverMSG}</h3>}
+            
           </div>
         </div>
 
