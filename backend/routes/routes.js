@@ -8,7 +8,7 @@ const { register, login, logout } = require('../middleware/auth')
 
 const { getAllRooms, getSingleRoom, userProfile, userProfileSettings, bookRoom, bookedRoom, unBookedRoom, terminateContract } = require('../contollers/userController')
 
-const { addRoom, updateRoom, deleteRoom } = require('../contollers/moderatorController')
+const { getRooms, addRoom, updateRoom, deleteRoom } = require('../contollers/moderatorController')
 
 router.post('/api/register', register)
 router.post('/api/login', login)
@@ -25,6 +25,8 @@ router.get('/api/user/bookedrooms', authenticate, bookedRoom)
 router.delete('/api/user/unbookroom/:roomId', authenticate, unBookedRoom)
 
 router.delete('/api/user/terminatecontract', authenticate, terminateContract)
+
+router.get('/api/moderator/dashboard', authenticate, authorize(['admin','moderator']), getRooms)
 
 router.post('/api/moderator/rooms', authenticate, authorize(['admin', 'moderator']), addRoom)
 

@@ -10,6 +10,7 @@ import ViewRoomPage from './Pages/ViewRoomPage/ViewRoomPage'
 import ProfilePage from './Pages/ProfilePage/ProfilePage'
 import MyBookingsPage from './Pages/MyBookingsPage/MyBookingsPage'
 import HistoryPage from './Pages/HistoryPage/HistoryPage'
+import ModeratorDashboard from './Pages/ModeratorDashboard/ModeratorDashboard'
 
 function App() {
   return (
@@ -54,6 +55,12 @@ function App() {
           <>
             <Navbar />
             <HistoryPage />
+          </>
+        }/>
+        <Route path='/moderator/dashboard' element={
+          <>
+            <Navbar />
+            <ModeratorDashboard />
           </>
         }/>
         <Route path='/register' element={<RegisterPage/>} />

@@ -1,10 +1,15 @@
 const mongoose = require('mongoose')
 
 const roomSchema = mongoose.Schema({
-  owner: {
+  landlord: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
+      index: true,
+    },
+  tenant: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
       index: true,
     },
   roomTitle:{

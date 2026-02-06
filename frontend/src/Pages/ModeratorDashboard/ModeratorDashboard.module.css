@@ -1,0 +1,53 @@
+.ModeratorDashboard{
+  padding: 50px 20px 100px;
+}
+
+.Container{
+  margin: 0 5rem;
+}
+
+.Header{
+  margin-bottom: 2rem;
+  width: 70%;
+}
+
+.RoomCard{
+  padding: 1rem;
+  border: 1px solid lightblue;
+  border-radius: 0.5rem;
+  line-height: 2rem;
+  background-color: aliceblue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.Menu{
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  line-height: 6px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.ImgContainer{
+  width: 200px;
+  border-radius: 1rem;
+  background-color: lightgray;
+}
+
+.ImgContainer > img{
+  height: 100%;
+  width: inherit;
+  object-fit: cover;
+}
+
+.RoomsContainer{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}

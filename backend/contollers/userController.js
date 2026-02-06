@@ -47,7 +47,7 @@ const bookRoom = async (req, res) => {
       return res.status(400).json({ message: 'Room already booked' })
     }
     room.booked = true
-    room.owner = userId
+    room.tenant = userId
     await room.save()
     res.status(200).json({
       message: 'Room booked successfully'
@@ -61,7 +61,7 @@ const bookRoom = async (req, res) => {
 const bookedRoom = async (req, res) => { 
   const userId = req.user._id
   try {
-    const room = await Room.find({ owner: userId })
+    const room = await Room.find({ tenant: userId })
     res.status(200).json(room)
   } catch (error) {
     res.status(500).json({ message: 'Error fetching booked room' })
@@ -73,7 +73,7 @@ const unBookedRoom = async (req, res) => {
   const userId = req.user._id
 
   try {
-    await Room.findByIdAndUpdate(roomId, { booked: false, owner: null })
+    await Room.findByIdAndUpdate(roomId, { booked: false, tenant: null })
     res.status(200).json({ message: 'Room unbooked successfully' })
   } catch (error) {
     res.status(500).json({ message: 'Error unbooking room' })
