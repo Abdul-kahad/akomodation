@@ -32,6 +32,6 @@ router.post('/api/moderator/rooms', authenticate, authorize(['admin', 'moderator
 
 router.put('/api/moderator/rooms/:roomId', authenticate, authorize(['admin', 'moderator']), updateRoom)
 
-router.delete( '/api/moderator/rooms/:roomId', authenticate, authorize(['admin']), deleteRoom)
+router.delete( '/api/moderator/rooms/:roomId', authenticate, authorize(['admin','moderator']), deleteRoom)
 
 module.exports = router
