@@ -1,0 +1,50 @@
+.AdminDashboard{
+  padding: 50px 20px 100px;
+}
+
+.Container{
+  margin: 0 5rem;
+}
+
+.Header{
+  margin-bottom: 2rem;
+  width: 70%;
+}
+
+.Group{
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.Card{
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.05);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.Menu{
+  position: absolute;
+  top: 0.2rem;
+  right: 0.6rem;
+  line-height: 6px;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.CardImg{
+  height: inherit;
+  width: 100px;
+  border-radius: 0.5rem;
+}
+
+.CardBody{
+  padding: 1.5rem;
+  line-height: 2rem;
+}

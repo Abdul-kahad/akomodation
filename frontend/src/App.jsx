@@ -11,6 +11,7 @@ import ProfilePage from './Pages/ProfilePage/ProfilePage'
 import MyBookingsPage from './Pages/MyBookingsPage/MyBookingsPage'
 import HistoryPage from './Pages/HistoryPage/HistoryPage'
 import ModeratorDashboard from './Pages/ModeratorDashboard/ModeratorDashboard'
+import AdminDashboard from './Pages/AdminDashboard/AdminDashboard'
 
 function App() {
   return (
@@ -61,6 +62,12 @@ function App() {
           <>
             <Navbar />
             <ModeratorDashboard />
+          </>
+        }/>
+        <Route path='/admin/dashboard' element={
+          <>
+            <Navbar />
+            <AdminDashboard />
           </>
         }/>
         <Route path='/register' element={<RegisterPage/>} />

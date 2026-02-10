@@ -38,7 +38,23 @@ const ProfileItems = () => {
           </ul>
         </div>
       )
-    }else {
+    }else if(userRole === 'admin') {
+      return (
+        <div className={classes.ProfileItems}>
+          <ul className={classes.ListItems}>
+            <li><NavLink className={classes.NavLink} to='/admin/dashboard'>Dashboard</NavLink></li>
+            <li><NavLink className={classes.NavLink} to='/profile'>Profile</NavLink></li>
+            <li><NavLink className={classes.NavLink} to='/mybookings'>My Bookings</NavLink></li>
+            <li><NavLink className={classes.NavLink} to='/addroom'>Add Room</NavLink></li>
+            <li><NavLink className={classes.NavLink} to='/booking/history'>Booking History</NavLink></li>
+            <li><NavLink className={classes.NavLink} to='#'>Inbox</NavLink></li>
+            <li><NavLink className={classes.NavLink} to='#'>Settings</NavLink></li>
+            <li onClick={LogoutHandler}>Logout</li>
+          </ul>
+        </div>
+      )
+    }
+    else {
       navigate('/login')
     }
 }
