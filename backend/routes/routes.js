@@ -6,7 +6,7 @@ const { authorize } = require('../middleware/authorizeMiddleware')
 
 const { register, login, logout } = require('../middleware/auth')
 
-const { getUsers } = require('../contollers/adminController')
+const { getUsers, SuspendUser, deleteUser } = require('../contollers/adminController')
 
 const { getAllRooms, getSingleRoom, userProfile, userProfileSettings, bookRoom, bookedRoom, unBookedRoom, terminateContract } = require('../contollers/userController')
 
@@ -37,5 +37,9 @@ router.put('/api/moderator/rooms/:roomId', authenticate, authorize(['admin', 'mo
 router.delete( '/api/moderator/rooms/:roomId', authenticate, authorize(['admin','moderator']), deleteRoom)
 
 router.get('/api/admin/users', authenticate, authorize(['admin']), getUsers)
+
+router.put('/api/admin/users/:id/:action', authenticate, authorize(['admin']), SuspendUser)
+
+router.delete('/api/admin/users/:id', authenticate, authorize(['admin']), deleteUser)
 
 module.exports = router

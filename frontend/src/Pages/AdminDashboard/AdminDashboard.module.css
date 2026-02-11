@@ -48,3 +48,22 @@
   padding: 1.5rem;
   line-height: 2rem;
 }
+
+.Options{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+}
+
+.OptionsList{
+  background-color: #f7f7f7;
+  border: 1px solid lightgray;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+}
+
+.OptionsList > li{
+  padding: 0.2rem 0;
+  cursor: pointer;
+}

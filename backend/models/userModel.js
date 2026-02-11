@@ -38,6 +38,10 @@ const userSchema = mongoose.Schema({
     type: String,
     enum: ['user', 'moderator', 'admin'],
     default: 'user'
+  },
+  suspended: {
+    type: Boolean,
+    default: false
   }
 },
   {

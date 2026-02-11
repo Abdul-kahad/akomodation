@@ -56,17 +56,17 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 120px;
+  width: 150px;
 }
 
 .OptionsList{
-  background-color: white;
+  background-color: #f7f7f7;
   border: 1px solid lightgray;
   border-radius: 0.5rem;
   padding: 0.5rem;
 }
 
 .OptionsList > li{
-  padding: 0.1rem 0;
+  padding: 0.2rem 0;
   cursor: pointer;
 }
