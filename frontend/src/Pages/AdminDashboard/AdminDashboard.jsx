@@ -80,7 +80,7 @@ const AdminDashboard = () => {
                       </li>
                     </ul>
                   </div>}
-                <img className={classes.CardImg}/>
+                <img className={classes.CardImg} src={user.profilePic ? user.profilePic : '../src/assets/profile.png'} alt={user.name} />
                 <div onClick={()=>setToggle('')} className={classes.CardBody}>
                   <h3>{user.name}</h3>
                   <p>User id: {user._id}</p>

@@ -1,4 +1,4 @@
-import  Axios  from 'axios'
+import Axios from 'axios'
 import { useState } from 'react'
 import RoomCard from '../../Components/Rooms/RoomCard/RoomCard'
 import classes from './AddNewRoomPage.module.css'
@@ -8,72 +8,83 @@ const AddNewRoomPage = () => {
   const [formData, setFormData] = useState({})
   const [serverMSG, setServerMSG] = useState('')
   const navigate = useNavigate()
+
   const AddNewRoomHandler = async (e) => {
     e.preventDefault()
-  
+
     const token = localStorage.getItem('accessToken')
-  
     if (!token) {
       alert('You are not authorized. Please login.')
       return
     }
-  
+
+    // Build a FormData object so multer can parse the file
+    const data = new FormData()
+    data.append('roomImage', formData.roomImage) 
+    data.append('roomTitle', formData.roomTitle)
+    data.append('roomDescription', formData.roomDescription)
+    data.append('roomLocation', formData.roomLocation)
+    data.append('roomPrice', formData.roomPrice)
+    data.append('roomQuantity', formData.roomQuantity)
+
     try {
       const response = await Axios.post(
         'http://localhost:3000/api/moderator/rooms',
-        formData,
+        data,
         {
           headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json'
+            Authorization: `Bearer ${token}`
           }
         }
       )
-  
-      alert(response.data.message) 
+
+      alert(response.data.message)
       navigate('/')
-  
+
     } catch (error) {
       console.error('Add room error:', error)
-  
-      const message =
-        error.response?.data?.message || 'Failed to add room'
-  
+      const message = error.response?.data?.message || 'Failed to add room'
       setServerMSG(message)
       alert(message)
-    } 
+    }
   }
-  
-  return(
+
+  return (
     <div className={classes.AddNewRoomPage}>
       <div className={classes.Container}>
         <div className={classes.Header}>
           <h2>Add New Space</h2>
         </div>
         <div className={classes.Flex}>
-          <form className={classes.Form} onSubmit={(e) => AddNewRoomHandler(e)}>
+          <form className={classes.Form} onSubmit={AddNewRoomHandler}>
             <label>Add at most 3 images</label>
-            <input type="file" />
-            <label>Title</label> 
-            <input type="text" onChange={(e) => setFormData({...formData, roomTitle: e.target.value})} placeholder='e.g Chamber and Hall'/>
+            <input
+              type="file"
+              name='roomImage'
+              accept='image/*'
+              onChange={(e) => setFormData({ ...formData, roomImage: e.target.files[0] })}
+            />
+            <label>Title</label>
+            <input type="text" onChange={(e) => setFormData({ ...formData, roomTitle: e.target.value })} placeholder='e.g Chamber and Hall' />
             <label>Description</label>
-            <input type="text" onChange={(e) => setFormData({...formData, roomDescription: e.target.value})} placeholder='e.g This a a furnished chamber and hall'/>
+            <input type="text" onChange={(e) => setFormData({ ...formData, roomDescription: e.target.value })} placeholder='e.g This is a furnished chamber and hall' />
             <label>Location</label>
-            <input type="text" onChange={(e) => setFormData({...formData, roomLocation: e.target.value})} placeholder='e.g Lamashegu'/>
+            <input type="text" onChange={(e) => setFormData({ ...formData, roomLocation: e.target.value })} placeholder='e.g Lamashegu' />
             <label>Price</label>
-            <input type="number" onChange={(e) => setFormData({...formData, roomPrice: e.target.value})} placeholder='e.g GH3000'/>
+            <input type="number" onChange={(e) => setFormData({ ...formData, roomPrice: e.target.value })} placeholder='e.g GH3000' />
             <label>Available Quantity</label>
-            <input type="number" onChange={(e) => setFormData({...formData, roomQuantity: e.target.value})} placeholder='e.g 2'/>
+            <input type="number" onChange={(e) => setFormData({ ...formData, roomQuantity: e.target.value })} placeholder='e.g 2' />
             <button>Add Room</button>
           </form>
-          {formData.roomTitle ? <RoomCard 
+          {formData.roomTitle ? <RoomCard
+            roomImage={formData.roomImage ? URL.createObjectURL(formData.roomImage) : null}
             roomTitle={formData.roomTitle}
             roomDescription={formData.roomDescription}
             roomLocation={formData.roomLocation}
             roomPrice={formData.roomPrice}
             roomQuantity={formData.roomQuantity}
-            hidden={true}/> : null
-            }
+            hidden={true} /> : null
+          }
         </div>
       </div>
     </div>

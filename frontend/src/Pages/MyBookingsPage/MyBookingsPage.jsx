@@ -28,7 +28,7 @@ const MyBookingsPage = () => {
       { room.length <= 0 ? <h2>{serverMSG}</h2> : 
         room.map(room => (
           <div className={classes.roomBox} key={room._id}>
-            <img className={classes.roomImage} alt={room.roomTitle} />
+            <img className={classes.roomImage} src={room.roomImage ? room.roomImage : 'src/assets/image.png'} alt={room.roomTitle} />
             <div className={classes.roomInfo}>
               <h3>{room.roomTitle}</h3>
               <p><strong>Description:</strong> {room.roomDescription}</p>

@@ -5,7 +5,7 @@ const RoomCard = (props) => {
   return(
     <div className={classes.RoomCard} onClick={props.clicked}>
       <div className={classes.RoomImagConatiner}>
-        <img className={classes.RoomImg} src={props.RoomImg ? props.RoomImg : 'src/assets/image.png'}/>
+        <img className={classes.RoomImg} src={props.roomImage ? props.roomImage : 'src/assets/image.png'}/>
       </div>
       <div className={classes.RoomInfo}>
         <h3>{props.roomTitle}</h3>

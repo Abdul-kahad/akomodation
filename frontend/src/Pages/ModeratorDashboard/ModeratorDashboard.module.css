@@ -44,6 +44,7 @@
   height: 100%;
   width: inherit;
   object-fit: cover;
+  border-radius: 0.5rem;
 }
 
 .RoomsContainer{

@@ -63,7 +63,7 @@ const ModeratorDashboard = () => {
                 </ul>
               </div>}
             <div className={classes.ImgContainer}>
-              <img />
+              <img src={room.roomImage ? room.roomImage : 'src/assets/image.png'} alt={room.roomTitle} />
             </div>
             <div className={classes.RoomDetails}>
               <h3>{room.roomTitle}</h3>

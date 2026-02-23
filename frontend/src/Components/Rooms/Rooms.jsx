@@ -19,7 +19,7 @@ const Rooms = () => {
   }
 }
   useEffect(() => { getRoomsHandler() }, [])
-
+  
   if (rooms.length === 0) {
     return <h2>{serverMSG || 'No rooms available'}</h2>
   }
@@ -34,6 +34,7 @@ const Rooms = () => {
             <RoomCard 
               clicked={() => {navigate(`/viewroom/${room._id}`)}}
               key={room._id}
+              roomImage={room.roomImage}
               roomTitle = {room.roomTitle}
               roomDescription = {room.roomDescription}
               roomLocation = {room.roomLocation}

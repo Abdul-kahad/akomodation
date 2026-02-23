@@ -44,8 +44,8 @@ const ProfilePage = () => {
         <div className={classes.ProfileContent}> 
           <div className={classes.User}>
             <div className={classes.ProfileImages}>
-              <img className={classes.CoverPhoto} />
-              <img className={classes.ProfilePhoto} />
+              <img className={classes.CoverPhoto} src='src/assets/logo.png'/>
+              <img className={classes.ProfilePhoto} src={user.profilePic ? user.profilePic : 'src/assets/profile.png'}/>
             </div>
             <div className={classes.userDetails}>
               <h2>{user.name}</h2>
@@ -55,6 +55,7 @@ const ProfilePage = () => {
           <div className={classes.UserBookings}>
             <h2>My Room</h2>
             {room.length > 0 ? <RoomCard 
+              roomImage = {room[0].roomImage}
               roomTitle = {room[0].roomTitle}
               roomDescription = {room[0].roomDescription}
               roomLocation = {room[0].roomLocation}
