@@ -1,5 +1,6 @@
 .UpdateRoomPage{
   padding: 50px 20px 100px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .Container{
@@ -9,14 +10,19 @@
 .Header{
   margin-bottom: 2rem;
   text-align: center;
+  color: #026FAF;
 }
 
 .Flex{
   display: flex;
   justify-content: center;
-  align-items: baseline;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 2rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 60%;
+  margin: 0 auto;
 }
 
 
@@ -25,8 +31,9 @@
   flex-direction: column;
   padding: 2rem;
   border-radius: 0.8rem;
-  width: 320px;
-  background-color: #eee;
+  width: 150%;
+  background-color: #ffffff;
+  border: 1px solid rgba(223, 88, 10, 0.5);
 }
 
 .Form > label{

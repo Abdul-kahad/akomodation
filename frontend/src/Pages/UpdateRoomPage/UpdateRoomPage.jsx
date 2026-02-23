@@ -52,7 +52,8 @@ const UpdateRoomPage = () => {
           <form className={classes.Form} onSubmit={(e) => UpdateRoomHandler(e)}>
             <label>Add at most 3 images</label>
             <input 
-              type="file" />
+              type="file"
+              accept='image/*' />
             <label>Title</label> 
             <input 
               type="text" 
@@ -86,6 +87,7 @@ const UpdateRoomPage = () => {
             <button>Update Room</button>
           </form>
            <RoomCard 
+            roomImage={formData.roomImage}
             roomTitle={formData.roomTitle}
             roomDescription={formData.roomDescription}
             roomLocation={formData.roomLocation}

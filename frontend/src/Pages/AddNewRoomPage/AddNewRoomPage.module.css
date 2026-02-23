@@ -1,5 +1,6 @@
 .AddNewRoomPage{
   padding: 50px 20px 100px;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .Container{
@@ -11,11 +12,20 @@
   text-align: center;
 }
 
+.Header > h2{
+  color: #026FAF;
+}
+
 .Flex{
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 2rem;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 60%;
+  margin: 0 auto;
 }
 
 
@@ -25,7 +35,7 @@
   padding: 2rem;
   border-radius: 0.8rem;
   width: 320px;
-  background-color: #eee;
+  border: 1px solid rgba(223, 88, 10, 0.5);
 }
 
 .Form > label{

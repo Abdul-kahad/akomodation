@@ -2,7 +2,7 @@
   position: absolute;
   top: 5.5rem;
   right: 0;
-  background-color: white;
+  background-color: #026FAF;
   padding: 2rem;
   width: 25%;
   z-index: 100;
@@ -18,7 +18,7 @@
 .ListItems > li {
   padding: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  color: #333;
+   color: #fff;
 }
 
 .ListItems > li:hover {

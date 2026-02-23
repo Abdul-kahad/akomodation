@@ -28,7 +28,7 @@ const RegisterPage = () =>{
         <div className={classes.Welcome}>
           <h2>Welcome</h2>
           <p>Find a place you can call home, sign up to secure yours</p>
-          <img className={classes.Img}/>
+          <img className={classes.Img} src="/src/assets/welcome.png" alt="Welcome image"/>
           <span>
            <NavLink to='/login'><small>Already have an account?Login</small></NavLink>
           </span>

@@ -31,7 +31,7 @@ const LoginPage = () =>{
         <div className={classes.Welcome}>
           <h2>Welcome Back</h2>
           <p>Take a look at your space and keep contact</p>
-          <img className={classes.Img} />
+          <img className={classes.Img} src='/src/assets/welcome.png' alt="Welcome image"/>
           <span>
             <NavLink to='/register'><small>Don't have an account? Register</small></NavLink>
           </span>

@@ -11,6 +11,10 @@
   width: 70%;
 }
 
+.Header > h2{
+  color: #026FAF;
+}
+
 .Group{
   display: flex;
   gap: 1rem;

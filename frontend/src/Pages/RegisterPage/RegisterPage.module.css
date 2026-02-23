@@ -1,5 +1,5 @@
 .RegisterPage{
-  background-color: rgb(179, 79, 21);
+  background-color:  #026FAF;
   height: 100dvh;
   display: flex;
   justify-content: center;
@@ -7,7 +7,7 @@
 }
 
 .FormContainer{
-  /* width: 60%; */
+  width: 50%;
   background-color: white;
   padding: 2rem;
   display: flex;
@@ -17,13 +17,32 @@
   word-break: break-all ;
 }
 
+.Welcome{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
 .Welcome > h2{
-  font-size: 3rem;
+  font-size: 2rem;
+  color: #ED6205;
+}
+
+.Welcome > p{
+  color: rgb(0, 0, 0, 0.6);
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.Welcome span small{
+  color: rgba(243, 0, 0, 0.6);
 }
 
 .Img{
-  /* height: 350px; */
   margin: 10px;
+  width: 300px;
 }
 
 .Form{
@@ -37,10 +56,12 @@
 
 .Form > h2{
   margin-bottom: 1rem;
+  color: rgb(0, 0, 0, 0.7);
 }
 
 .Form > label{
   font-weight: 500;
+  color: rgb(0, 0, 0, 0.6);
 }
 
 .Form > input{
