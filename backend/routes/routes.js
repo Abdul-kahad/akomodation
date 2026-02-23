@@ -12,6 +12,8 @@ const { getAllRooms, getSingleRoom, userProfile, userProfileSettings, bookRoom, 
 
 const { getRooms, addRoom, updateRoom, deleteRoom } = require('../contollers/moderatorController')
 
+const upload = require('../middleware/multer/multer')
+
 router.post('/api/register', register)
 router.post('/api/login', login)
 router.delete('/api/logout', authenticate, logout)
@@ -30,7 +32,7 @@ router.delete('/api/user/terminatecontract', authenticate, terminateContract)
 
 router.get('/api/moderator/dashboard', authenticate, authorize(['admin','moderator']), getRooms)
 
-router.post('/api/moderator/rooms', authenticate, authorize(['admin', 'moderator']), addRoom)
+router.post('/api/moderator/rooms', authenticate, authorize(['admin', 'moderator']), upload.single('roomImage'), addRoom)
 
 router.put('/api/moderator/rooms/:roomId', authenticate, authorize(['admin', 'moderator']), updateRoom)
 

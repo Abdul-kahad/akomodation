@@ -12,6 +12,11 @@ const roomSchema = mongoose.Schema({
       ref: 'User',
       index: true,
     },
+  roomImage:{
+    type: String,
+    default: null,
+    required: true
+  },
   roomTitle:{
     type: String,
     required: true,

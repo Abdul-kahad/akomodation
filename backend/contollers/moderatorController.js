@@ -18,9 +18,11 @@ const getRooms = async(req, res) => {
 
 const addRoom = async(req, res) => {
   const { roomTitle, roomDescription, roomLocation, roomPrice, roomQuantity } = req.body
-  if( !roomTitle || !roomDescription || !roomLocation || !roomPrice || !roomQuantity) return res.status(400).json({message: 'Please enter all fields'})
+  const filePath = req.file?.path
+  // console.log('Received file path:', filePath)
+  if( !filePath || !roomTitle || !roomDescription || !roomLocation || !roomPrice || !roomQuantity) return res.status(400).json({message: 'Please enter all fields'})
   try {
-    const room = await Room.create({landlord: req.user._id, roomTitle, roomDescription, roomLocation, roomPrice, roomQuantity})
+    const room = await Room.create({landlord: req.user._id, roomImage: filePath, roomTitle, roomDescription, roomLocation, roomPrice, roomQuantity})
     res.status(201).json({message: 'Room added successful', room})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
