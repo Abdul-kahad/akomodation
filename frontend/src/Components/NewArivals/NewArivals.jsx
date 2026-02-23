@@ -3,7 +3,7 @@ import classes from './NewArivals.module.css'
 const NewArivals = () => {
   return(
     <div className={classes.NewArivals}>
-      <h2>New Arivals</h2>
+      <img src="src/assets/banner.png" alt="New Arrivals Banner" />
     </div> 
   )
 }

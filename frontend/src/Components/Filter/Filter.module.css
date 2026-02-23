@@ -4,20 +4,33 @@
   height: 4rem;
   padding: 2rem;
   border-bottom: 1px solid #ccc;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .SearchInput{
   padding: 0.5rem;
   width: 30%;
   border-radius: 2rem;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.SearchInput:focus{
+  border-color: #007BFF;
 }
 
 .FilterGroup{
   display: flex;
   align-items: center;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .FilterItem{
-  padding: 1.2rem;
+  padding: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.FilterItem:hover{
+    color: rgba(0, 0, 0, 0.8);
 }

@@ -3,6 +3,7 @@ import classes from './Navbar.module.css'
 import { useEffect, useState } from 'react'
 import Profile from '../Profile/Profile'
 import ProfileItems from '../Profile/ProfileItems/ProfileItems'
+import Logo from '../Logo/Logo'
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -18,7 +19,7 @@ const Navbar = () => {
     }
   return(
     <div className={classes.Navbar}>
-      <NavLink to='/'><h3 className={classes.Logo}>Akomodation</h3></NavLink>
+      <NavLink to='/'><Logo /></NavLink>
       <ul className={classes.Navlist}>
         <NavLink to='/findrooms'><li className={classes.Listitem}><h4>Find Rooms</h4></li></NavLink>
         <NavLink to='/roomsnearby'><li className={classes.Listitem}><h4>Rooms Nearby</h4></li></NavLink>

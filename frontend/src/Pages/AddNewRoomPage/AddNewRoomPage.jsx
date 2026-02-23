@@ -41,7 +41,7 @@ const AddNewRoomPage = () => {
   
       setServerMSG(message)
       alert(message)
-    }
+    } 
   }
   
   return(

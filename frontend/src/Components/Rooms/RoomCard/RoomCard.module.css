@@ -1,6 +1,7 @@
 .RoomCard{
   box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.08);
   display: flex;
+  background-color: white;
 }
 
 .RoomImagConatiner{
@@ -10,22 +11,43 @@
 
 .RoomImg{
   width: inherit;
-  height: 100%;
+  height: inherit;
   object-fit: cover;
 }
 
 .RoomInfo{
   padding: 1rem;
+  flex-grow: 1;
+  height: inherit;
+  line-height: auto;
+}
+
+.RoomInfo > article{
+  margin: 1rem 0;
+  color: rgb(0, 0, 0,0.8);
+}
+
+.RoomInfo > p{
+  color: rgb(0, 0, 0,0.8);
+}
+
+.RoomInfo > span{
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  color: rgb(0, 0, 0,0.5);
+  margin: 5px 0; 
 }
 
 button{
   width: 100%;
-  border: 1px solid rgb(223, 88, 10);
+  border: 2px solid rgb(223, 88, 10);
   background-color:  rgb(223, 88, 10);
   color: white;
   padding: 0.4rem;
   font-size: 1rem;
-  font-weight: 500;
   border-radius: 2rem;
   transition: all 0.3s;
   margin-top: 0.5rem;

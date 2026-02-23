@@ -3,16 +3,9 @@
   align-items: center; 
   justify-content: space-around;
   padding: 2rem;
-  background-color: rgb(179, 79, 21);
-  color: white;
+  background-color: rgb(255, 255, 255, 0.1);
   width: 100%;
   height: 5.5rem;
-}
-
-.Logo{
-  font-size: 1.5rem;
-  color: white;
-  cursor: pointer;
 }
 
 .Navlist{
@@ -24,29 +17,29 @@
   padding: 20px;
   cursor: pointer;
   transition: all 0.3s;
-  color: white;
+  color: #026FAF;
 }
 
 .Listitem:hover{
-  color: rgb(255, 94, 0);
+  color: #ED6205;
 }
 
 .Signup{
+  margin: 0;
   padding: 1rem 2rem;
-  border: 1px solid white;
+  border: 2px solid #ED6205;
   border-radius: 0.5rem;
   font-size: 1rem;
-  font-weight: 500;
-  color: rgb(116, 44, 2);
+  font-weight: 600;
   transition: all 0.3s;
   cursor: pointer;
 }
 
 .Logout{
-  color: rgb(116, 44, 2);
+  color: #ED6205;
 }
 
 .Signup:hover{
-  color: white;
-  background-color: transparent;
+  color: #ED6205;
+  background-color: rgba(237, 98, 5, 0.1);
 }

@@ -1,4 +1,9 @@
 .NewArivals{
-  height: 10rem;
-  background-color: aliceblue;
+  width: 100%;
+}
+
+.NewArivals img{
+  width: inherit;
+  height: auto; 
+  object-fit: cover; 
 }

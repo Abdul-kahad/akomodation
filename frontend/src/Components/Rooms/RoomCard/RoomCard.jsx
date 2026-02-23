@@ -5,14 +5,16 @@ const RoomCard = (props) => {
   return(
     <div className={classes.RoomCard} onClick={props.clicked}>
       <div className={classes.RoomImagConatiner}>
-        <img className={classes.RoomImg} />
+        <img className={classes.RoomImg} src={props.RoomImg ? props.RoomImg : 'src/assets/image.png'}/>
       </div>
       <div className={classes.RoomInfo}>
         <h3>{props.roomTitle}</h3>
-        <p>{props.roomDescription}</p>
-        <small>{props.roomLocation}</small>
-        <p>{props.roomPrice}</p>
-        <p>{props.roomQuantity}</p>
+        <article>{props.roomDescription}</article>
+        <p><strong>Price: ¢</strong>{props.roomPrice}</p>
+        <span>
+          <small><strong>Locatiion:</strong> {props.roomLocation}</small>
+          <small><strong>Quantity:</strong> {props.roomQuantity}</small>
+        </span>
         <Link to='/mybookings' hidden={props.hidden}><button>View Details</button></Link>
       </div>
     </div> 
