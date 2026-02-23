@@ -28,10 +28,12 @@ const login = async (req, res) => {
     const isValid = await bcrypt.compare(password, user.password)
     if(!isValid) return res.status(403).json({message: 'Wrong credentials'})
     const accessToken = JWT.sign({user: {id: user._id} }, process.env.ACCESS_TOKEN, {expiresIn: '30m'})
+    const refreshToken = JWT.sign({userId: user._id}, process.env.REFRESH_TOKEN, {expiresIn: '1d'})
     res.status(200).json({
       message: 'Loggin successful',
       user: { role: user.role },
-      accessToken})
+      accessToken,
+      refreshToken})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
     console.log(`Login error: ${error}`)
