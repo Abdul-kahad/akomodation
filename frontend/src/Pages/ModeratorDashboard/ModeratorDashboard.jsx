@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const ModeratorDashboard = () => {
   const [rooms, setRooms] = useState([])
   const [serverMSG, setServerMSG] = useState('')
-  const [toggle, setToggle] = useState(false)
+  const [toggle, setToggle] = useState()
   const navigate = useNavigate()
  
   useEffect(() => {
@@ -23,8 +23,8 @@ const ModeratorDashboard = () => {
     fetchRooms()
   },[rooms])
 
-   const toggleMenuHandler = () => {
-    setToggle(prev => !prev)
+   const toggleMenuHandler = (roomId) => {
+    setToggle(roomId)
   }
 
   const deleteHandler = async(roomId) => {
@@ -52,14 +52,15 @@ const ModeratorDashboard = () => {
         <div className={classes.RoomsContainer}>
           { rooms.length > 0 ? rooms.map(room => 
           <div key={room._id} className={classes.RoomCard}>
-            <div onClick={toggleMenuHandler} className={classes.Menu} >
+            <div onClick={() => toggleMenuHandler(room._id)} className={classes.Menu} >
               . <br />. <br />.
             </div>
-            {toggle && 
-              <div onClick={toggleMenuHandler} className={classes.Options}>
+            {toggle == room._id && 
+              <div className={classes.Options}>
                 <ul className={classes.OptionsList}>
                   <li onClick={() => navigate(`/update/updateroom/${room._id}`)}>Edit</li>
-                  <li onClick={() => deleteHandler(room._id)}>Delete</li>
+                  <li onClick={() => deleteHandler(room._id)} style={{color: 'red'}}>Delete</li>
+                  <li onClick={() => toggleMenuHandler('')}><button>Close</button></li>
                 </ul>
               </div>}
             <div className={classes.ImgContainer}>
