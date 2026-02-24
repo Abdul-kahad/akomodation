@@ -19,13 +19,13 @@ const Navbar = () => {
     }
   return(
     <div className={classes.Navbar}>
-      <NavLink to='/'><Logo /></NavLink>
+      <NavLink to='/'><Logo /></NavLink> 
       <ul className={classes.Navlist}>
         <NavLink to='/findrooms'><li className={classes.Listitem}><h4>Find Rooms</h4></li></NavLink>
         <NavLink to='/roomsnearby'><li className={classes.Listitem}><h4>Rooms Nearby</h4></li></NavLink>
       </ul>
       {!userRole ? <NavLink to='/register'><button className={classes.Signup}>Signup</button></NavLink> : <Profile onClick={toggleProfileItems} />}
-      {showProfileItems && <ProfileItems />}
+      {showProfileItems && <ProfileItems Clicked={toggleProfileItems}/>}
     </div>
   )
 }

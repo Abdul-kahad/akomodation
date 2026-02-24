@@ -24,7 +24,7 @@ const MyBookingsPage = () => {
   },[])
   return (
     <div className={classes.container}>
-      <h1>My Room</h1>
+      <h2>My Room</h2>
       { room.length <= 0 ? <h2>{serverMSG}</h2> : 
         room.map(room => (
           <div className={classes.roomBox} key={room._id}>

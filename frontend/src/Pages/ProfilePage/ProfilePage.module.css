@@ -1,6 +1,7 @@
 .container{
-    padding: 50px 20px 100px;
+    padding: 50px 20px 50px;
     display: flex;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .SideNav{
@@ -15,6 +16,10 @@
     flex: 1;
     margin-left: 20px;
     margin-right: 20px;
+    background-color: #fff; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .userMenu{

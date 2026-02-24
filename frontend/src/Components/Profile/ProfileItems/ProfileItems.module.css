@@ -10,22 +10,36 @@
 }
 
 .ListItems{
-  list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.ListItems > li {
-  padding: 1rem;
+.NavLink {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-   color: #fff;
+  color: #fff;
+  padding: 20px 0;
+  display: block;
 }
 
-.ListItems > li:hover {
+.ListItems > a:hover {
   background-color: rgba(0, 0, 0, 0.05);
   cursor: pointer;
 }
 
-.NavLink {
-  color: inherit;
+.ListItems > .Logout {
+  background-color: #ED6205;
+  color: #fff;
+  border: 1px solid #ED6205;
+  padding: 10px;
+  text-align: center;
+  margin-top: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.ListItems > .Logout:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid white;
+  cursor: pointer;
 }
