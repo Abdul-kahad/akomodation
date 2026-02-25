@@ -73,10 +73,10 @@ const AdminDashboard = () => {
                 {toggle === user._id && 
                   <div  className={classes.Options}>
                     <ul className={classes.OptionsList}>
-                      <li onClick={() => SuspendHandler(user._id)}>{user.suspended ? 'Unsuspend' : 'Suspend'}</li>
-                      <li style={{color: 'red'}} onClick={() => deleteHandler(user._id)}>Delete User</li>
+                      <li onClick={() => SuspendHandler(user._id)}> <i className="fas fa-user-slash"></i> {user.suspended ? 'Unsuspend' : 'Suspend'}</li>
+                      <li style={{color: 'red'}} onClick={() => deleteHandler(user._id)}> <i className="fas fa-trash"></i> Delete User</li>
                       <li onClick={() => setToggle('')}>
-                        <button>Close</button>
+                        <button> <i className='fas fa-times'></i> Close</button>
                       </li>
                     </ul>
                   </div>}

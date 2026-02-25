@@ -58,9 +58,9 @@ const ModeratorDashboard = () => {
             {toggle == room._id && 
               <div className={classes.Options}>
                 <ul className={classes.OptionsList}>
-                  <li onClick={() => navigate(`/update/updateroom/${room._id}`)}>Edit</li>
-                  <li onClick={() => deleteHandler(room._id)} style={{color: 'red'}}>Delete</li>
-                  <li onClick={() => toggleMenuHandler('')}><button>Close</button></li>
+                  <li onClick={() => navigate(`/update/updateroom/${room._id}`)}> <i className="fas fa-edit"></i> Edit</li>
+                  <li onClick={() => deleteHandler(room._id)} style={{color: 'red'}}> <i className="fas fa-trash-alt"></i> Delete</li>
+                  <li onClick={() => toggleMenuHandler('')}><button> <i className="fas fa-times"></i> Close</button></li>
                 </ul>
               </div>}
             <div className={classes.ImgContainer}>
@@ -69,10 +69,10 @@ const ModeratorDashboard = () => {
             <div className={classes.RoomDetails}>
               <h3>{room.roomTitle}</h3>
               <p>{room.roomDescription}</p>
-              <p>Location: {room.roomLocation}</p>
-              <p>Price: ${room.roomPrice}</p>
-              <p>Quantity: {room.roomQuantity}</p>
-              <p>Status: {room.booked ? "Booked" : "Available"}</p>
+              <p> <i className="fas fa-map-marker-alt"></i> Location: {room.roomLocation}</p>
+              <p> <i className="fas fa-dollar-sign"></i> Price: ${room.roomPrice}</p>
+              <p> <i className="fas fa-sort-numeric-up"></i> Quantity: {room.roomQuantity}</p>
+              <p> <i className="fas fa-check-circle"></i> Status: {room.booked ? "Booked" : "Available"}</p>
             </div>
           </div>) : <h3>{serverMSG}</h3>}
         </div>

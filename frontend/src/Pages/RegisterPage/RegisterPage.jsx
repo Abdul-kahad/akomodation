@@ -72,7 +72,7 @@ const RegisterPage = () =>{
             placeholder='******'
             onChange={(e) => setFormData({...formData, cpassword: e.target.value})}
             value={formData.cpassword}/>
-          <button onClick={(e) => registerHandler(e)}>Register</button>
+          <button onClick={(e) => registerHandler(e)}> <i className="fas fa-user-plus"></i> Register</button>
         </form>
       </div>
     </div>

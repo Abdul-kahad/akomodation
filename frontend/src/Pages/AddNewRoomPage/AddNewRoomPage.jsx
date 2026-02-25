@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom'
 const AddNewRoomPage = () => {
   const [formData, setFormData] = useState({})
   const [serverMSG, setServerMSG] = useState('')
+  const [loader, setLoader] = useState(false)
   const navigate = useNavigate()
 
   const AddNewRoomHandler = async (e) => {
@@ -28,6 +29,7 @@ const AddNewRoomPage = () => {
     data.append('roomQuantity', formData.roomQuantity)
 
     try {
+      setLoader(true)
       const response = await Axios.post(
         'http://localhost:3000/api/moderator/rooms',
         data,
@@ -37,7 +39,7 @@ const AddNewRoomPage = () => {
           }
         }
       )
-
+      setLoader(false)
       alert(response.data.message)
       navigate('/')
 
@@ -74,7 +76,7 @@ const AddNewRoomPage = () => {
             <input type="number" onChange={(e) => setFormData({ ...formData, roomPrice: e.target.value })} placeholder='e.g GH3000' />
             <label>Available Quantity</label>
             <input type="number" onChange={(e) => setFormData({ ...formData, roomQuantity: e.target.value })} placeholder='e.g 2' />
-            <button>Add Room</button>
+            <button type="submit"> <i className='fas fa-plus'></i> {loader ? 'Adding Room...' : 'Add Room'}</button>
           </form>
           {formData.roomTitle ? <RoomCard
             roomImage={formData.roomImage ? URL.createObjectURL(formData.roomImage) : null}

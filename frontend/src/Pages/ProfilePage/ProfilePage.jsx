@@ -48,12 +48,12 @@ const ProfilePage = () => {
               <img className={classes.ProfilePhoto} src={user.profilePic ? user.profilePic : 'src/assets/profile.png'}/>
             </div>
             <div className={classes.userDetails}>
-              <h2>{user.name}</h2>
-              <p>Email: {user.email}</p>
+              <h2> <i className="fas fa-user"></i> {user.name}</h2>
+              <p><i className="fas fa-envelope"></i> Email: {user.email}</p>
             </div>
           </div>
           <div className={classes.UserBookings}>
-            <h2>My Room</h2>
+            <h2>My Room <i className="fas fa-home"></i></h2>
             {room.length > 0 ? <RoomCard 
               roomImage = {room[0].roomImage}
               roomTitle = {room[0].roomTitle}

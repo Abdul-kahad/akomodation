@@ -84,7 +84,7 @@ const UpdateRoomPage = () => {
               onChange={(e) => setFormData({...formData, roomQuantity: e.target.value})} 
               value={formData.roomQuantity || ''}
               placeholder='e.g 2'/>
-            <button>Update Room</button>
+            <button> <i className='fas fa-sync'></i> Update Room</button>
           </form>
            <RoomCard 
             roomImage={formData.roomImage}

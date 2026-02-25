@@ -1,0 +1,52 @@
+.SideNaveBar{
+  min-width: 60px;
+  /* width: 300px; */
+  background-color: rgb(52, 99, 241);
+  height: 100vh;
+  padding: 1rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+}
+
+.Logo{
+  width: 50px;
+  height: 50px;
+  margin-bottom: 1rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.Logo img{
+  width: 100%;
+  height: 100%;
+}
+
+.sideMenu{
+  padding-top: 1rem;
+}
+.navHeader{
+  color: white;
+  margin: 16px 0 8px 0;
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+.navLink{
+ color: white;
+ padding: 1rem;
+ font-size: 0.8rem;
+}
+
+.navLink:hover{
+  background-color: rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.navLink i{
+  margin-right: 0.5rem;
+}

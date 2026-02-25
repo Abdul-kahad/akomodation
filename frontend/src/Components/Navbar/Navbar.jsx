@@ -21,10 +21,10 @@ const Navbar = () => {
     <div className={classes.Navbar}>
       <NavLink to='/'><Logo /></NavLink> 
       <ul className={classes.Navlist}>
-        <NavLink to='/findrooms'><li className={classes.Listitem}><h4>Find Rooms</h4></li></NavLink>
-        <NavLink to='/roomsnearby'><li className={classes.Listitem}><h4>Rooms Nearby</h4></li></NavLink>
+        <NavLink to='/findrooms'><li className={classes.Listitem}><h4><i className="fas fa-search"></i> Find Rooms</h4></li></NavLink>
+        <NavLink to='/roomsnearby'><li className={classes.Listitem}><h4><i className="fas fa-map-marker-alt"></i> Rooms Nearby</h4></li></NavLink>
       </ul>
-      {!userRole ? <NavLink to='/register'><button className={classes.Signup}>Signup</button></NavLink> : <Profile onClick={toggleProfileItems} />}
+      {!userRole ? <NavLink to='/register'><button className={classes.Signup}>Signup <i className="fas fa-user-plus"></i></button></NavLink> : <Profile onClick={toggleProfileItems} />}
       {showProfileItems && <ProfileItems Clicked={toggleProfileItems}/>}
     </div>
   )

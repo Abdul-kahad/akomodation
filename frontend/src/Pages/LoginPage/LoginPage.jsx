@@ -50,7 +50,7 @@ const LoginPage = () =>{
             type="password" 
             placeholder='******'
             onChange={(e) => setFormData({...formData, password: e.target.value})}/>
-          <button>Login</button>
+          <button> <i className="fas fa-sign-in-alt"></i> Login</button>
         </form>
       </div>
     </div>

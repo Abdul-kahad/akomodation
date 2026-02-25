@@ -12,6 +12,7 @@ import MyBookingsPage from './Pages/MyBookingsPage/MyBookingsPage'
 import HistoryPage from './Pages/HistoryPage/HistoryPage'
 import ModeratorDashboard from './Pages/ModeratorDashboard/ModeratorDashboard'
 import AdminDashboard from './Pages/AdminDashboard/AdminDashboard'
+import Dashboard from './Pages/Dashboard/Dashboard'
 
 function App() {
   return (
@@ -68,6 +69,13 @@ function App() {
           <>
             <Navbar />
             <AdminDashboard />
+          </>
+        }/>
+
+        <Route path='/dashboard' element={
+          <>
+            {/* <Navbar /> */}
+            <Dashboard />
           </>
         }/>
         <Route path='/register' element={<RegisterPage/>} />

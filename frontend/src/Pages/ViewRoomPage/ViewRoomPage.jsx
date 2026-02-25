@@ -48,7 +48,7 @@ const BookRoomHandler = async () => {
           <p><strong>Price:</strong> ${room.roomPrice}</p>
           <p><strong>Quantity:</strong> {room.roomQuantity}</p>
           <p><strong>Status:</strong> {room.booked ? "Booked" : "Available"}</p>
-          <button className={classes.Button} onClick={BookRoomHandler}>Book Now</button>
+          <button className={classes.Button} onClick={BookRoomHandler}> <i className="fas fa-plus"></i> Book Now</button>
         </div>
       </div>
     </div>

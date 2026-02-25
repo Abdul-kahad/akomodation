@@ -12,10 +12,10 @@ const RoomCard = (props) => {
         <article>{props.roomDescription}</article>
         <p><strong>Price: ¢</strong>{props.roomPrice}</p>
         <span>
-          <small><strong>Locatiion:</strong> {props.roomLocation}</small>
-          <small><strong>Quantity:</strong> {props.roomQuantity}</small>
+          <small><strong> <i className="fas fa-map-marker-alt"></i> Locatiion:</strong> {props.roomLocation}</small>
+          <small><strong> <i className="fas fa-sort-numeric-up"></i> Quantity:</strong> {props.roomQuantity}</small>
         </span>
-        <Link to='/mybookings' hidden={props.hidden}><button>View Details</button></Link>
+        <Link to='/mybookings' hidden={props.hidden}><button> <i className="fas fa-eye"></i> View Details</button></Link>
       </div>
     </div> 
   )
