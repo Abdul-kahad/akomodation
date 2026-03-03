@@ -1,5 +1,6 @@
 import SideNaveBar from '../../Components/SideNaveBar/SideNaveBar'
 import classes from './Dashboard.module.css'
+import { Link } from 'react-router-dom'
 
 const Dashboard = () => {
   return (
@@ -18,10 +19,10 @@ const Dashboard = () => {
           <div className={classes.Content}>
             <span>
               <p><strong>Dashboard</strong></p>
-              <small>Home <i className="fas fa-home"></i></small>
+              <Link to="/"><small>Home <i className="fas fa-home"></i></small></Link>
             </span>
               <div className={classes.DashboardGrid}>
-                <div className={classes.gridRow}>
+                
                   <div className={classes.gridItem} style={{backgroundColor: "#4CAF50"}}>
                     <div className={classes.content}>
                       <div className={classes.info}>
@@ -58,8 +59,8 @@ const Dashboard = () => {
                       <i className="fas fa-money-bill-wave"></i>
                     </div>
                   </div>
-                </div>
-                <div className={classes.gridRow}>
+                
+                
                   <div className={classes.gridItem} style={{backgroundColor: "#4CAF50"}}>
                     <div className={classes.content}>
                       <div className={classes.info}>
@@ -96,7 +97,7 @@ const Dashboard = () => {
                       <i className="fas fa-users"></i>
                     </div>
                   </div>
-                </div>
+                
 
               </div>
           </div>

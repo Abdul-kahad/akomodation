@@ -1,28 +1,28 @@
 import classes from './SideNaveBar.module.css'
+import { Link } from 'react-router-dom'
 
 const SideNaveBar = () => {
   return (
     <div className={classes.SideNaveBar}>
-      <div className={classes.Logo}>
+      <Link to="/"><div className={classes.Logo}>
         <img src="/public/favicon.ico" alt="logo" />
         <span>Akomodation</span>
-      </div>
+      </div></Link>
       <hr />
       <ul className={classes.sideMenu}>
-        <li className={classes.navLink}>
+        <Link to="/admin/dashboard"><li className={classes.navLink}>
           <i className="fas fa-tachometer-alt"></i>
-          <span>Dashboard</span>
-        </li>
+          <span >Dashboard</span>
+        </li></Link>
         <li className={classes.navHeader}><i className="fas fa-user"></i> User Management</li>
-        <li className={classes.navLink}>View and search all registered users</li>
-        <li className={classes.navLink}>Suspend or activate accounts</li>
-        <li className={classes.navLink}>Delete user</li>
-        <li className={classes.navLink}>View booking history</li>
+        <Link to="/admin/dashboard/users"><li className={classes.navLink}>View and search all registered users</li></Link>
+        <Link to="/admin/dashboard/manage/users"><li className={classes.navLink}>Manage user</li></Link>
+        <Link to="/admin/dashboard/booking/history"><li className={classes.navLink}>View booking history</li></Link>
         <li className={classes.navLink}>Assign roles</li>
 
         <li className={classes.navHeader}><i className="fas fa-home"></i> Property Management</li>
-        <li className={classes.navLink}>Add new rooms or properties</li>
-        <li className={classes.navLink}>Edit room details and pricing</li>
+        <Link to="/addroom"><li className={classes.navLink}>Add new rooms or properties</li></Link>
+        <Link to="/update/updateroom/:roomId"><li className={classes.navLink}>Edit room details and pricing</li></Link>
         <li className={classes.navLink}>Upload and manage images</li>
         <li className={classes.navLink}>Set location</li>
         <li className={classes.navLink}>Define room types </li>

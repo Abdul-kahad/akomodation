@@ -11,8 +11,9 @@ import ProfilePage from './Pages/ProfilePage/ProfilePage'
 import MyBookingsPage from './Pages/MyBookingsPage/MyBookingsPage'
 import HistoryPage from './Pages/HistoryPage/HistoryPage'
 import ModeratorDashboard from './Pages/ModeratorDashboard/ModeratorDashboard'
-import AdminDashboard from './Pages/AdminDashboard/AdminDashboard'
 import Dashboard from './Pages/Dashboard/Dashboard'
+import Users from './Pages/AdminDashboard/Users'
+import ManageUsers from './Pages/ManageUsers/ManageUsers'
 
 function App() {
   return (
@@ -53,9 +54,8 @@ function App() {
             <ProfilePage />
           </>
         }/>
-         <Route path='/booking/history' element={
+         <Route path='/admin/dashboard/booking/history' element={
           <>
-            <Navbar />
             <HistoryPage />
           </>
         }/>
@@ -65,17 +65,20 @@ function App() {
             <ModeratorDashboard />
           </>
         }/>
-        <Route path='/admin/dashboard' element={
+        <Route path='/admin/dashboard/users' element={
           <>
-            <Navbar />
-            <AdminDashboard />
+            <Users />
           </>
         }/>
 
-        <Route path='/dashboard' element={
+        <Route path='/admin/dashboard' element={
           <>
-            {/* <Navbar /> */}
             <Dashboard />
+          </>
+        }/>
+        <Route path='/admin/dashboard/manage/users' element={
+          <>
+            <ManageUsers />
           </>
         }/>
         <Route path='/register' element={<RegisterPage/>} />

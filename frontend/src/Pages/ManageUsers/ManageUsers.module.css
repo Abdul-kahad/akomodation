@@ -27,10 +27,10 @@
 }
 
 .Content{
-  height: inherit;
   background-color: rgba(0, 0, 0, 0.05);
   overflow-y: scroll;
   padding-top: 5rem;
+  height: inherit;
 }
 
 .Content > span{
@@ -66,7 +66,7 @@
 .notification{
   width: 30px;
   height: 30px;
-  background-color: rgb(182, 128, 46);
+  background-color: #b6802e;
 }
 
 .userPrfile{
@@ -75,19 +75,59 @@
   background-color: rgb(182, 46, 46); 
 }
 
-.DashboardGrid{
-  padding: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+
+
+/* Container to allow horizontal scrolling on mobile */
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.gridItem{
-  height: 200px;
-  border-radius: 8px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  background-color: rgb(255, 255, 255);
-  padding: 1rem;
-  color: white;
-  font-size: 1.1rem;
+table {
+    width: 100%;
+    border-collapse:collapse; /* Removes double borders */
+    min-width: 600px; /* Ensures data doesn't squish too much */
+}
+
+/* Header Styling */
+thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
+}
+
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+/* Zebra Striping */
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+/* Hover effect to help users track rows */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+/* Status Badge Styling */
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.active { background-color: #d4edda; color: #155724; }
+.suspended { background-color: #fff3cd; color: #856404; }
+
+
+.editItems i {
+    margin-right: 10px;
+    color: #757575;
+    cursor: pointer;
 }
