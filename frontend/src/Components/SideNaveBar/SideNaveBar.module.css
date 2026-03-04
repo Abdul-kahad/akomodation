@@ -50,3 +50,19 @@
 .navLink i{
   margin-right: 0.5rem;
 }
+
+ul .Icon{
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.logo{
+  justify-content: center;
+}
+
+.sidemenu{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+}

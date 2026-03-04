@@ -1,8 +1,9 @@
 import Axios from 'axios'
 import { useState } from 'react'
-import RoomCard from '../../Components/Rooms/RoomCard/RoomCard'
+import { useNavigate, Link } from 'react-router-dom'
 import classes from './AddNewRoomPage.module.css'
-import { useNavigate } from 'react-router-dom'
+import RoomCard from '../../Components/Rooms/RoomCard/RoomCard'
+import SideNaveBar from '../../Components/SideNaveBar/SideNaveBar'
 
 const AddNewRoomPage = () => {
   const [formData, setFormData] = useState({})
@@ -52,41 +53,57 @@ const AddNewRoomPage = () => {
   }
 
   return (
-    <div className={classes.AddNewRoomPage}>
+    <div className={classes.Users}>
       <div className={classes.Container}>
-        <div className={classes.Header}>
-          <h2>Add New Space</h2>
-        </div>
-        <div className={classes.Flex}>
-          <form className={classes.Form} onSubmit={AddNewRoomHandler}>
-            <label>Add at most 3 images</label>
-            <input
-              type="file"
-              name='roomImage'
-              accept='image/*'
-              onChange={(e) => setFormData({ ...formData, roomImage: e.target.files[0] })}
-            />
-            <label>Title</label>
-            <input type="text" onChange={(e) => setFormData({ ...formData, roomTitle: e.target.value })} placeholder='e.g Chamber and Hall' />
-            <label>Description</label>
-            <input type="text" onChange={(e) => setFormData({ ...formData, roomDescription: e.target.value })} placeholder='e.g This is a furnished chamber and hall' />
-            <label>Location</label>
-            <input type="text" onChange={(e) => setFormData({ ...formData, roomLocation: e.target.value })} placeholder='e.g Lamashegu' />
-            <label>Price</label>
-            <input type="number" onChange={(e) => setFormData({ ...formData, roomPrice: e.target.value })} placeholder='e.g GH3000' />
-            <label>Available Quantity</label>
-            <input type="number" onChange={(e) => setFormData({ ...formData, roomQuantity: e.target.value })} placeholder='e.g 2' />
-            <button type="submit"> <i className='fas fa-plus'></i> {loader ? 'Adding Room...' : 'Add Room'}</button>
-          </form>
-          {formData.roomTitle ? <RoomCard
-            roomImage={formData.roomImage ? URL.createObjectURL(formData.roomImage) : null}
-            roomTitle={formData.roomTitle}
-            roomDescription={formData.roomDescription}
-            roomLocation={formData.roomLocation}
-            roomPrice={formData.roomPrice}
-            roomQuantity={formData.roomQuantity}
-            hidden={true} /> : null
-          }
+        <SideNaveBar />
+        <div className={classes.MainWindow}>
+          <div className={classes.Header}>
+            <button className={classes.toggleSidenave}><i className="fas fa-bars"></i></button>
+            <div className={classes.wrapper}>
+              <i className="fas fa-bell" style={{fontSize: '1rem'}}></i>
+              <i className="fas fa-envelope" style={{fontSize: '1rem'}}></i>
+              <i className="fas fa-user" style={{fontSize: '1rem'}}></i>
+            </div>
+          </div>
+          <div className={classes.Content}>
+            <span>
+              <p><strong>Add new rooms or properties</strong></p>
+              <Link to="/"><small>Home <i className="fas fa-home"></i></small></Link>
+            </span>
+              
+            <div className={classes.Flex}>
+              <form className={classes.Form} onSubmit={AddNewRoomHandler}>
+                <label>Add at most 3 images</label>
+                <input
+                  type="file"
+                  name='roomImage'
+                  accept='image/*'
+                  onChange={(e) => setFormData({ ...formData, roomImage: e.target.files[0] })}
+                />
+                <label>Title</label>
+                <input type="text" onChange={(e) => setFormData({ ...formData, roomTitle: e.target.value })} placeholder='e.g Chamber and Hall' />
+                <label>Description</label>
+                <input type="text" onChange={(e) => setFormData({ ...formData, roomDescription: e.target.value })} placeholder='e.g This is a furnished chamber and hall' />
+                <label>Location</label>
+                <input type="text" onChange={(e) => setFormData({ ...formData, roomLocation: e.target.value })} placeholder='e.g Lamashegu' />
+                <label>Price</label>
+                <input type="number" onChange={(e) => setFormData({ ...formData, roomPrice: e.target.value })} placeholder='e.g GH3000' />
+                <label>Available Quantity</label>
+                <input type="number" onChange={(e) => setFormData({ ...formData, roomQuantity: e.target.value })} placeholder='e.g 2' />
+                <button type="submit"> <i className='fas fa-plus'></i> {loader ? 'Adding Room...' : 'Add Room'}</button>
+              </form>
+              {formData.roomTitle ? <RoomCard
+                roomImage={formData.roomImage ? URL.createObjectURL(formData.roomImage) : null}
+                roomTitle={formData.roomTitle}
+                roomDescription={formData.roomDescription}
+                roomLocation={formData.roomLocation}
+                roomPrice={formData.roomPrice}
+                roomQuantity={formData.roomQuantity}
+                hidden={true} /> : null
+              }
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

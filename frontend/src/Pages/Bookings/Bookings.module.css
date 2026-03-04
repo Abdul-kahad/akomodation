@@ -76,52 +76,51 @@
 }
 
 
-.Flex{
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 2rem;
-  padding: 2rem;
-  margin: 0 auto;
+
+/* Container to allow horizontal scrolling on mobile */
+.tableContainer {
+    width: 100%;
+    overflow-x: auto;
+    margin: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
-.Form{
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  border-radius: 0.8rem;
-  max-width: 350px;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+table {
+    width: 100%;
+    border-collapse:collapse; /* Removes double borders */
+    min-width: 600px; /* Ensures data doesn't squish too much */
 }
 
-.Form > label{
-  font-weight: 500;
+/* Header Styling */
+thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+    font-weight: bold;
 }
 
-.Form > input{
-  width: 100%;
-  padding: 0.4rem;
-  border: 1px solid rgba(223, 88, 10, 0.5);
-  outline: none;
-  border-radius: 5px;
-  margin-bottom: 0.3rem;
-
+th, td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
 }
 
-.Form > button{
-  width: 100%;
-  padding: 0.4rem;
-  border: none;
-  background-color: rgb(179, 79, 21);
-  color: white;
-  font-weight: 500;
-  margin-top: 0.5rem;
-  cursor: pointer;
-  transition: all 0.3s;
+/* Zebra Striping */
+tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
 }
 
-.Form > button:hover{
-  background-color: rgb(122, 49, 6);
+/* Hover effect to help users track rows */
+tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
 }
+
+/* Status Badge Styling */
+.status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+.active { background-color: #d4edda; color: #155724; }
+.suspended { background-color: #fff3cd; color: #856404; }

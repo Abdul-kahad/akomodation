@@ -18,12 +18,23 @@
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid rgba(151, 151, 151, 0.5);
   box-shadow: 0 0 5px rgba(151, 151, 151, 0.5);
-  padding: 1rem;
+  padding: 1.5rem;
   width: 100%;
   position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.Header > i{
+  font-size: 2rem;
+  color: rgb(63, 63, 63);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.Header > i:hover{
+  color: rgb(49, 49, 49);
 }
 
 .Content{
@@ -55,12 +66,6 @@
 .wrapper{
   display: flex;
   column-gap: 1rem;
-}
-
-.toggleSidenave{
-  width: 30px;
-  height: 30px;
-  /* background-color: rgb(46, 118, 182); */
 }
 
 .notification{

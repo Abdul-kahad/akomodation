@@ -14,6 +14,7 @@ import ModeratorDashboard from './Pages/ModeratorDashboard/ModeratorDashboard'
 import Dashboard from './Pages/Dashboard/Dashboard'
 import Users from './Pages/AdminDashboard/Users'
 import ManageUsers from './Pages/ManageUsers/ManageUsers'
+import Bookings from './Pages/Bookings/Bookings'
 
 function App() {
   return (
@@ -24,18 +25,6 @@ function App() {
             <HomePage />
           </>} 
           />
-        <Route path='/addroom' element={
-          <>
-            <Navbar />
-            <AddNewRoomPage />
-          </>
-        }/>
-        <Route path='/update/updateroom/:roomId' element={
-          <>
-            <Navbar />
-            <UpdateRoomPage />
-          </>
-        }/>
         <Route path='/viewroom/:roomId' element={
           <>
             <Navbar />
@@ -54,33 +43,14 @@ function App() {
             <ProfilePage />
           </>
         }/>
-         <Route path='/admin/dashboard/booking/history' element={
-          <>
-            <HistoryPage />
-          </>
-        }/>
-        <Route path='/moderator/dashboard' element={
-          <>
-            <Navbar />
-            <ModeratorDashboard />
-          </>
-        }/>
-        <Route path='/admin/dashboard/users' element={
-          <>
-            <Users />
-          </>
-        }/>
-
-        <Route path='/admin/dashboard' element={
-          <>
-            <Dashboard />
-          </>
-        }/>
-        <Route path='/admin/dashboard/manage/users' element={
-          <>
-            <ManageUsers />
-          </>
-        }/>
+        <Route path='/addroom' element={<AddNewRoomPage />}/>
+        <Route path='/update/updateroom/:roomId' element={<UpdateRoomPage />}/>
+        <Route path='/admin/dashboard/booking/history' element={<HistoryPage />}/>
+        <Route path='/admin/dashboard/bookings' element={<Bookings/>} />
+        <Route path='/moderator/dashboard' element={<ModeratorDashboard />}/>
+        <Route path='/admin/dashboard/users' element={<Users />}/>
+        <Route path='/admin/dashboard' element={<Dashboard />}/>
+        <Route path='/admin/dashboard/manage/users' element={<ManageUsers />}/>
         <Route path='/register' element={<RegisterPage/>} />
         <Route path='/login' element={<LoginPage/>} />
       </Routes>

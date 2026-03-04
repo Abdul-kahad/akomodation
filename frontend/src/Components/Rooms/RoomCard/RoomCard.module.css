@@ -5,6 +5,7 @@
   flex-wrap: wrap;
   border-radius: 0.5rem;
   overflow: hidden;
+  max-width: 350px;
 }
 
 .RoomImagConatiner{
@@ -42,6 +43,8 @@
   justify-content: space-between;
   color: rgb(0, 0, 0,0.5);
   margin: 5px 0; 
+  word-break: break-all;
+  gap: 1rem;
 }
 
 button{
