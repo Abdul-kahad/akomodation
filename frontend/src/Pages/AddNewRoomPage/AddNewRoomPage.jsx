@@ -10,6 +10,11 @@ const AddNewRoomPage = () => {
   const [serverMSG, setServerMSG] = useState('')
   const [loader, setLoader] = useState(false)
   const navigate = useNavigate()
+  const [sideBarOpen, setSideBarOpen] = useState(true)
+
+  const toggleSideBar = () => {
+    setSideBarOpen(prevState => !prevState)
+  }
 
   const AddNewRoomHandler = async (e) => {
     e.preventDefault()
@@ -55,10 +60,10 @@ const AddNewRoomPage = () => {
   return (
     <div className={classes.Users}>
       <div className={classes.Container}>
-        <SideNaveBar />
+        <SideNaveBar isOpen={sideBarOpen} />
         <div className={classes.MainWindow}>
           <div className={classes.Header}>
-            <button className={classes.toggleSidenave}><i className="fas fa-bars"></i></button>
+            <i className="fas fa-bars" onClick={toggleSideBar}></i>
             <div className={classes.wrapper}>
               <i className="fas fa-bell" style={{fontSize: '1rem'}}></i>
               <i className="fas fa-envelope" style={{fontSize: '1rem'}}></i>

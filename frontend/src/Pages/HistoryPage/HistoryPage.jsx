@@ -7,6 +7,11 @@ import { Link } from 'react-router-dom'
 const HistoryPage = () => {
   const [rooms, setRooms] = useState([])
   const [serverMSG, setServerMSG] = useState('')
+  const [sideBarOpen, setSideBarOpen] = useState(true)
+
+  const toggleSideBar = () => {
+    setSideBarOpen(prevState => !prevState)
+  }
 
   useEffect(() => {
     const fetchRooms = async () => {
@@ -28,10 +33,10 @@ const HistoryPage = () => {
   return (
     <div className={classes.HistoryPage}>
       <div className={classes.Container}>
-        <SideNaveBar />
+        <SideNaveBar isOpen={sideBarOpen} />
         <div className={classes.MainWindow}>
           <div className={classes.Header}>
-            <button className={classes.toggleSidenave}><i className="fas fa-bars"></i></button>
+            <i className="fas fa-bars" onClick={toggleSideBar}></i>
             <div className={classes.wrapper}>
               <i className="fas fa-bell" style={{fontSize: '1rem'}}></i>
               <i className="fas fa-envelope" style={{fontSize: '1rem'}}></i>

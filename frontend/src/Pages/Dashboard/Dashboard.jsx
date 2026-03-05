@@ -9,7 +9,6 @@ const Dashboard = () => {
   const [users, setUsers] = useState([])
   const [rooms, setRooms] = useState([])
   const [serverMSG, setServerMSG] = useState([])
-
   const [sideBarOpen, setSideBarOpen] = useState(true)
 
   const toggleSideBar = () => {

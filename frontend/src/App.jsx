@@ -12,7 +12,7 @@ import MyBookingsPage from './Pages/MyBookingsPage/MyBookingsPage'
 import HistoryPage from './Pages/HistoryPage/HistoryPage'
 import ModeratorDashboard from './Pages/ModeratorDashboard/ModeratorDashboard'
 import Dashboard from './Pages/Dashboard/Dashboard'
-import Users from './Pages/AdminDashboard/Users'
+import Users from './Pages/Users/Users'
 import ManageUsers from './Pages/ManageUsers/ManageUsers'
 import Bookings from './Pages/Bookings/Bookings'
 
