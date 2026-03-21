@@ -1,5 +1,7 @@
 const Room = require('../models/roomsModel')
 const User = require('../models/userModel')
+const Logs = require('../models/logsModel')
+
 
 const getAllRooms = async (req, res) => {
   try {
@@ -49,6 +51,7 @@ const bookRoom = async (req, res) => {
     room.booked = true
     room.tenant = userId
     await room.save()
+    const Log = await Logs.create({user: userId, log:`User with id ${userId}, booked room ${roomId}`})
     res.status(200).json({
       message: 'Room booked successfully'
     })
@@ -77,6 +80,7 @@ const unBookedRoom = async (req, res) => {
 
   try {
     await Room.findByIdAndUpdate(roomId, { booked: false, tenant: null })
+     const Log = await Logs.create({user: userId, log:`User with id ${userId}, unbooked room ${roomId}`})
     res.status(200).json({ message: 'Room unbooked successfully' })
   } catch (error) {
     res.status(500).json({ message: 'Error unbooking room' })

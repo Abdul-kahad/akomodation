@@ -1,6 +1,7 @@
 const User = require('../models/userModel')
 const bcrypt = require('bcrypt')
 const JWT = require('jsonwebtoken')
+const Logs = require('../models/logsModel')
 
 const register = async (req, res) => {
   const { name, country, email, phone, password, cpassword } = req.body
@@ -12,6 +13,7 @@ const register = async (req, res) => {
     const Salt = await bcrypt.genSalt(10)
     const hashedPassword = await bcrypt.hash(password, Salt)
     const user = await User.create({ name, country, email, phone, password: hashedPassword }) 
+    const Log = await Logs.create({user: user._id, log:`User with id ${user._id}, is registerd`})
     res.status(201).json({ message: 'Registration successful'})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
@@ -34,6 +36,7 @@ const login = async (req, res) => {
       user: { role: user.role },
       accessToken,
       refreshToken})
+      const Log = await Logs.create({user: user._id, log:`User with id ${user._id}, is logged in`})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
     console.log(`Login error: ${error}`)
