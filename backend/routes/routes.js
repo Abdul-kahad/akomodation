@@ -4,9 +4,9 @@ const router = express.Router()
 const { authenticate } = require('../middleware/authenticateMiddleware')
 const { authorize } = require('../middleware/authorizeMiddleware')
 
-const { register, login, logout } = require('../middleware/auth')
+const { register, login, logout, refresh } = require('../middleware/auth')
 
-const { getUsers, SuspendUser, deleteUser } = require('../contollers/adminController')
+const { getUsers, SuspendUser, deleteUser, getLogs } = require('../contollers/adminController')
 
 const { getAllRooms, getSingleRoom, userProfile, userProfileSettings, bookRoom, bookedRoom, unBookedRoom, terminateContract } = require('../contollers/userController')
 
@@ -16,6 +16,7 @@ const upload = require('../middleware/multer/multer')
 
 router.post('/api/register', register)
 router.post('/api/login', login)
+router.delete('/api/refresh', refresh)
 router.delete('/api/logout', authenticate, logout)
 
 router.get('/', getAllRooms)
@@ -36,12 +37,14 @@ router.post('/api/moderator/rooms', authenticate, authorize(['admin', 'moderator
 
 router.put('/api/moderator/rooms/:roomId', authenticate, authorize(['admin', 'moderator']), updateRoom)
 
-router.delete( '/api/moderator/rooms/:roomId', authenticate, authorize(['admin','moderator']), deleteRoom)
+router.delete('/api/moderator/rooms/:roomId', authenticate, authorize(['admin','moderator']), deleteRoom)
 
 router.get('/api/admin/users', authenticate, authorize(['admin']), getUsers)
 
 router.put('/api/admin/users/:id/:action', authenticate, authorize(['admin']), SuspendUser)
 
 router.delete('/api/admin/users/:id', authenticate, authorize(['admin']), deleteUser)
+
+router.get('/api/admin/dasboard/logs', authenticate, authorize(['admin']), getLogs)
 
 module.exports = router

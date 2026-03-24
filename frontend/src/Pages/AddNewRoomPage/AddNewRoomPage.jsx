@@ -76,37 +76,40 @@ const AddNewRoomPage = () => {
               <Link to="/"><small>Home <i className="fas fa-home"></i></small></Link>
             </span>
               
-            <div className={classes.Flex}>
-              <form className={classes.Form} onSubmit={AddNewRoomHandler}>
-                <label>Add at most 3 images</label>
-                <input
-                  type="file"
-                  name='roomImage'
-                  accept='image/*'
-                  onChange={(e) => setFormData({ ...formData, roomImage: e.target.files[0] })}
-                />
-                <label>Title</label>
-                <input type="text" onChange={(e) => setFormData({ ...formData, roomTitle: e.target.value })} placeholder='e.g Chamber and Hall' />
-                <label>Description</label>
-                <input type="text" onChange={(e) => setFormData({ ...formData, roomDescription: e.target.value })} placeholder='e.g This is a furnished chamber and hall' />
-                <label>Location</label>
-                <input type="text" onChange={(e) => setFormData({ ...formData, roomLocation: e.target.value })} placeholder='e.g Lamashegu' />
-                <label>Price</label>
-                <input type="number" onChange={(e) => setFormData({ ...formData, roomPrice: e.target.value })} placeholder='e.g GH3000' />
-                <label>Available Quantity</label>
-                <input type="number" onChange={(e) => setFormData({ ...formData, roomQuantity: e.target.value })} placeholder='e.g 2' />
+              <form  onSubmit={AddNewRoomHandler}>
+                  <table>
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th><input type="file" name='roomImage' accept='image/*' onChange={(e) => setFormData({ ...formData, roomImage: e.target.files[0] })} /></th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomTitle: e.target.value })} placeholder='e.g Chamber and Hall'/></th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomDescription: e.target.value })} placeholder='e.g This is a furnished chamber and hall'/> </th>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th>Location</th>
+                      <th>Price</th>
+                      <th>Available Quantity</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomLocation: e.target.value })} placeholder='e.g Lamashegu'/></th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomPrice: e.target.value })} placeholder='e.g GH3000'/> </th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomQuantity: e.target.value })}placeholder='e.g 2'/></th>
+                    </tr>
+                  </tbody>
+                </table>
                 <button type="submit"> <i className='fas fa-plus'></i> {loader ? 'Adding Room...' : 'Add Room'}</button>
               </form>
-              {formData.roomTitle ? <RoomCard
-                roomImage={formData.roomImage ? URL.createObjectURL(formData.roomImage) : null}
-                roomTitle={formData.roomTitle}
-                roomDescription={formData.roomDescription}
-                roomLocation={formData.roomLocation}
-                roomPrice={formData.roomPrice}
-                roomQuantity={formData.roomQuantity}
-                hidden={true} /> : null
-              }
-            </div>
+
 
           </div>
         </div>

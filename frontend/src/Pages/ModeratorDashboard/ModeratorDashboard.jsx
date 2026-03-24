@@ -2,16 +2,13 @@ import Axios from 'axios'
 import { useEffect, useState } from 'react'
 import classes from './ModeratorDashboard.module.css'
 import SideNaveBar from '../../Components/SideNaveBar/SideNaveBar'
-import { useNavigate,Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 const ModeratorDashboard = () => {
   const [rooms, setRooms] = useState([])
   const [serverMSG, setServerMSG] = useState('')
-  const [toggle, setToggle] = useState()
-  const navigate = useNavigate()
   const [sideBarOpen, setSideBarOpen] = useState(true)
-  const userId = localStorage.getItem('userid')
 
   const toggleSideBar = () => {
     setSideBarOpen(prevState => !prevState)
@@ -30,22 +27,6 @@ const ModeratorDashboard = () => {
     fetchRooms()
   },[])
 
-
-  const deleteHandler = async(roomId) => {
-        try {
-          const confirmDelete = window.confirm('Are you sure you want to delete this room?')
-          if(!confirmDelete) return
-          const response = await Axios.delete(`http://localhost:3000/api/moderator/rooms/${roomId}`, {
-              headers:{
-                Authorization: `Bearer ${localStorage.getItem('accessToken')}`
-              }})
-          setServerMSG(response.data.message)
-          alert(response.data.message)
-        } catch (error) {
-          setServerMSG(error?.message)
-          console.log(`an error occured: ${error}`)
-        }
-  }
   console.log(rooms)
   return (
     <div className={classes.Dashboard}>
@@ -67,25 +48,6 @@ const ModeratorDashboard = () => {
             </span>
               <div className={classes.DashboardGrid}>
                 
-                  {/* <div className={classes.gridItem} style={{backgroundColor: "#9C27B0" }}>
-                    <div className={classes.content}>
-                      <div className={classes.info}>
-                        <h2>{users && users.length}</h2>
-                        <p>Total Users</p>
-                      </div>
-                      <i className="fas fa-users"></i>
-                    </div>
-                  </div>
-                  <div className={classes.gridItem} style={{backgroundColor: "#4CAF50"}}>
-                    <div className={classes.content}>
-                      <div className={classes.info}>
-                        <h2>{
-                          users.filter(room => room.suspended == false).length}</h2>
-                        <p>Active Users</p>
-                      </div>
-                      <i className="fas fa-users"></i>
-                    </div>
-                  </div> */}
                   <div className={classes.gridItem} style={{backgroundColor: "#2196F3"}}>
                     <div className={classes.content}>
                       <div className={classes.info}>

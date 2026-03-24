@@ -1,6 +1,20 @@
 const User = require('../models/userModel')
 const Logs = require('../models/logsModel')
 
+const getLogs = async (req, res) => {
+  const userRole = req.user.role
+  const userId = req.user._id
+  if (userRole !== 'admin') {
+    return res.status(403).json({ message: 'Access denied' })
+  }
+  try {
+    const logs = await Logs.find()
+    res.status(200).json(logs)
+  } catch (error) {
+    res.status(500).json({ message: 'Failed to fetch logs' })
+  }
+}
+
 const getUsers = async (req, res) => {
   const userRole = req.user.role
   const userId = req.user._id
@@ -10,7 +24,6 @@ const getUsers = async (req, res) => {
   try {
     const users = await User.find({}, { password: 0 })
     res.status(200).json(users)
-    const Log = await Logs.create({user: userId, log:`User with id ${userId}, is getting all users`})
     // console.log(users)
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch users' })
@@ -59,5 +72,6 @@ const deleteUser = async (req, res) => {
 module.exports = {
   getUsers,
   SuspendUser,
-  deleteUser
+  deleteUser,
+  getLogs
 }

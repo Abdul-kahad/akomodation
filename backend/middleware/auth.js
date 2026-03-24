@@ -31,11 +31,16 @@ const login = async (req, res) => {
     if(!isValid) return res.status(403).json({message: 'Wrong credentials'})
     const accessToken = JWT.sign({user: {id: user._id} }, process.env.ACCESS_TOKEN, {expiresIn: '30m'})
     const refreshToken = JWT.sign({userId: user._id}, process.env.REFRESH_TOKEN, {expiresIn: '1d'})
+    res.cookie('jwt', refreshToken, {
+      httpOnly: true,
+      secure: true,
+      sameSite: 'None',
+      maxAge: 7 * 24 * 60 * 60 * 1000
+    })
     res.status(200).json({
       message: 'Loggin successful',
       user: { role: user.role },
-      accessToken,
-      refreshToken})
+      accessToken})
       const Log = await Logs.create({user: user._id, log:`User with id ${user._id}, is logged in`})
   } catch (error) {
     res.status(500).json({message: 'Internal or server error'})
@@ -43,12 +48,36 @@ const login = async (req, res) => {
   }
 }
 
+const refresh = async (req, res) => {
+  const cookie = req.cookie
+  if(!cookie?.jwt) return res.status(401).json({message: 'Unauthorized'})
+  const refreshToken = cookie.jwt
+
+ try {
+  const decoded = JWT.verify(refreshToken, process.env.REFRESH_TOKEN)
+  const foundUser =  await User.findOne({_id: decoded._id})
+  if(!foundUser) return res.status(401).json({message: 'Unauthorized'})
+  const accessToken = JWT.sign({user: {id: foundUser._id} }, process.env.ACCESS_TOKEN, {expiresIn: '30m'})
+  res.status(200).json({
+    user: { role: foundUser.role },
+    accessToken
+  })
+ } catch (error) {
+  console.log(`Error cannot verify token: ${error}`)
+  res.status(403).json({message: 'Forbidden'})
+ }
+}
+
 const logout = (req, res) => {
-  
+  const cookie = req.cookie
+  if(!cookie?.jwt) return res.status(204)
+  res.clearCookie('jwt', {httpOnly: true, sameSite: 'None', secure: true })
+  res.status(200).json({message: 'Cookie cleared'})
 }
 
 module.exports = {
   register,
   login,
-  logout
+  logout,
+  refresh
 }

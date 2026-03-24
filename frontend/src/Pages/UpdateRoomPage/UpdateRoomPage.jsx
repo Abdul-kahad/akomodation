@@ -11,6 +11,7 @@ const UpdateRoomPage = () => {
   const [formData, setFormData ] = useState({})
   const [serverMSG, setServerMSG ] = useState('')
   const [sideBarOpen, setSideBarOpen] = useState(true)
+  const [loader, setLoader] = useState(false)
 
   const toggleSideBar = () => {
     setSideBarOpen(prevState => !prevState)
@@ -31,9 +32,11 @@ const UpdateRoomPage = () => {
   const UpdateRoomHandler = async(e)  => {
     e.preventDefault()
     try {
+      setLoader(true)
       const response = await Axios.put(`http://localhost:3000/api/moderator/rooms/${roomId}`, formData,{ headers:{
         Authorization: `Bearer ${localStorage.getItem('accessToken')}`
       }})
+      setLoader(false)
       setServerMSG(response.data.message)
       alert(response.data.message)
       navigate('/')
@@ -67,53 +70,39 @@ const UpdateRoomPage = () => {
               <Link to="/"><small>Home <i className="fas fa-home"></i></small></Link>
             </span>
               
-            <div className={classes.Flex}>
-              <form className={classes.Form} onSubmit={(e) => UpdateRoomHandler(e)}>
-                <label>Add at most 3 images</label>
-                <input 
-                  type="file"
-                  accept='image/*' />
-                <label>Title</label> 
-                <input 
-                  type="text" 
-                  onChange={(e) => setFormData({...formData, roomTitle: e.target.value})} 
-                  value={formData.roomTitle || ''}
-                  placeholder='e.g Chamber and Hall'/>
-                <label>Description</label>
-                <input 
-                  type="text" 
-                  onChange={(e) => setFormData({...formData, roomDescription: e.target.value})} 
-                  value={formData.roomDescription || ''}
-                  placeholder='e.g This a a furnished chamber and hall'/>
-                <label>Location</label>
-                <input 
-                  type="text" 
-                  onChange={(e) => setFormData({...formData, roomLocation: e.target.value})} 
-                  value={formData.roomLocation || ''}
-                  placeholder='e.g Lamashegu'/>
-                <label>Price</label>
-                <input 
-                  type="number" 
-                  onChange={(e) => setFormData({...formData, roomPrice: e.target.value})} 
-                  value={formData.roomPrice || ''}
-                  placeholder='e.g GH3000'/>
-                <label>Available Quantity</label>
-                <input 
-                  type="number" 
-                  onChange={(e) => setFormData({...formData, roomQuantity: e.target.value})} 
-                  value={formData.roomQuantity || ''}
-                  placeholder='e.g 2'/>
-                <button> <i className='fas fa-sync'></i> Update Room</button>
+             <form  onSubmit={(e) => UpdateRoomHandler(e)}>
+                  <table>
+                  <thead>
+                    <tr>
+                      <th>Image</th>
+                      <th>Title</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th><input type="file" name='roomImage' accept='image/*' onChange={(e) => setFormData({ ...formData, roomImage: e.target.files[0] })} /></th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomTitle: e.target.value })} value={formData.roomTitle || ''} placeholder='e.g Chamber and Hall'/></th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomDescription: e.target.value })}  value={formData.roomDescription || ''} placeholder='e.g This is a furnished chamber and hall'/> </th>
+                    </tr>
+                  </tbody>
+                  <thead>
+                    <tr>
+                      <th>Location</th>
+                      <th>Price</th>
+                      <th>Available Quantity</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomLocation: e.target.value })} value={formData.roomLocation || ''} placeholder='e.g Lamashegu'/></th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomPrice: e.target.value })}  value={formData.roomPrice || ''} placeholder='e.g GH3000'/> </th>
+                      <th><input type="text" onChange={(e) => setFormData({ ...formData, roomQuantity: e.target.value })} value={formData.roomQuantity || ''} placeholder='e.g 2'/></th>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="submit"> <i className='fas fa-plus'></i> {loader ? 'Updating Room...' : 'Update Room'}</button>
               </form>
-              <RoomCard 
-                roomImage={formData.roomImage}
-                roomTitle={formData.roomTitle}
-                roomDescription={formData.roomDescription}
-                roomLocation={formData.roomLocation}
-                roomPrice={formData.roomPrice}
-                roomQuantity={formData.roomQuantity}
-                hidden={true}/>
-            </div>
 
           </div>
         </div>
